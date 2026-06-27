@@ -3,23 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLUE TEAM DEFENSE</title>
+    <title>CYBER ACADEMY - DEFENSIVE MODULE</title>
     <style>
-        :root { --bg-corporate: #040711; --bg-surface: #0a1122; --bg-terminal: #02040a; --brand-blue: #1e40af; --accent-cyan: #06b6d4; --text-main: #f8fafc; --text-secondary: #94a3b8; }
+        :root {
+            --bg-main: #060913;
+            --bg-card: #0b1220;
+            --bg-terminal: #020408;
+            --accent-green: #00ff66;
+            --accent-blue: #00d2ff;
+            --text-title: #ffffff;
+            --text-desc: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.05);
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, sans-serif; }
-        body { background-color: var(--bg-corporate); color: var(--text-main); padding: 15px; }
-        .nav-back { color: var(--accent-cyan); text-decoration: none; font-family: monospace; display: block; margin-bottom: 20px; font-weight: bold; }
-        .panel { background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 20px; margin-bottom: 15px; }
-        .title { border-left: 4px solid var(--brand-blue); padding-left: 10px; font-size: 1.2rem; text-transform: uppercase; margin-bottom: 15px; }
-        .code { background: var(--bg-terminal); padding: 12px; border-radius: 6px; font-family: monospace; color: #79c0ff; margin-top: 10px; overflow-x: auto; white-space: pre-wrap; }
+        body { background-color: var(--bg-main); color: #ffffff; padding: 15px; line-height: 1.5; }
+        .nav-back { color: var(--accent-blue); text-decoration: none; font-family: monospace; display: inline-block; margin-bottom: 20px; font-weight: bold; font-size: 0.85rem; }
+        .section-title { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; color: #ffffff; border-left: 4px solid var(--accent-green); padding-left: 12px; }
+        .lesson-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 22px; margin-bottom: 20px; }
+        .lesson-card h3 { font-size: 1.1rem; color: #ffffff; margin-bottom: 8px; }
+        .lesson-card p { color: var(--text-desc); font-size: 0.85rem; margin-bottom: 12px; }
+        .terminal-block { background: var(--bg-terminal); border: 1px solid rgba(255,255,255,0.02); border-radius: 6px; padding: 12px; font-family: 'Courier New', monospace; font-size: 0.8rem; color: #79c0ff; border-left: 3px solid var(--accent-green); overflow-x: auto; white-space: pre-wrap; word-break: break-all; }
     </style>
 </head>
 <body>
-    <a href="index.html" class="nav-back">← RETORNAR AO PANEL PRINCIPAL</a>
-    <div class="panel">
-        <h2 class="title">Módulo 02 // Blue Team Defense</h2>
-        <p style="color: var(--text-secondary); font-size: 0.9rem;">Hardening de servidores Linux, monitoramento de conexões ativas e arquitetura Zero Trust.</p>
-        <div class="code"># Auditoria ativa de conexões e portas abertas no Kernel&#10;ss -tulpn && netstat -antp</div>
+
+    <a href="index.html" class="nav-back">← RETORNAR À ÁRVORE DE CURSOS</a>
+    <h2 class="section-title">Aulas Técnicas // Trilha Defensiva</h2>
+
+    <div class="lesson-card">
+        <h3>Aula 1: Hardening de Servidores e Proteção de Portas</h3>
+        <p>Uso de firewalls nativos do kernel Linux para bloquear conexões laterais e auditoria estrita de soquetes ativos.</p>
+        <div class="terminal-block">ss -tulpn&#10;sudo ufw default deny incoming&#10;sudo ufw allow 443/tcp&#10;sudo ufw enable</div>
     </div>
+
 </body>
 </html>
