@@ -3,42 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GHOST // Official Intel Site</title>
+    <title>GHOST // Intelligence Portal</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: #030303; color: #bc13fe; font-family: 'Consolas', 'Courier New', monospace; padding: 15px; display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow-x: hidden; }
-        body::before { content: " "; display: block; position: fixed; top: 0; left: 0; bottom: 0; right: 0; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06)); z-index: 9999; background-size: 100% 3px, 3px 100%; pointer-events: none; }
-        .ghost-container { width: 100%; max-width: 650px; background: rgba(10, 5, 15, 0.95); border: 1px solid #bc13fe; box-shadow: 0 0 20px rgba(188, 19, 254, 0.3); padding: 25px; position: relative; }
-        .ghost-avatar { text-align: center; font-size: 50px; margin-bottom: 10px; text-shadow: 0 0 15px #bc13fe; animation: float 3s ease-in-out infinite; }
-        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
-        .status-bar { border-bottom: 1px dashed #bc13fe; padding-bottom: 10px; margin-bottom: 20px; font-size: 12px; color: #888; display: flex; justify-content: space-between; }
-        .status-online { color: #00ff66; text-shadow: 0 0 5px #00ff66; }
-        h1 { font-size: 26px; letter-spacing: 3px; text-align: center; margin-bottom: 20px; color: #fff; text-shadow: 0 0 10px #bc13fe, 0 0 20px #bc13fe; }
-        p { color: #d8a0ff; font-size: 14px; line-height: 1.6; margin-bottom: 15px; }
-        .intel-box { background: rgba(30, 10, 45, 0.4); border-left: 3px solid #ff007f; padding: 12px; margin: 15px 0; font-size: 13px; color: #ff80bf; }
-        .menu-list { margin-top: 25px; }
-        .menu-item { display: block; width: 100%; background: transparent; border: 1px solid #bc13fe; color: #bc13fe; padding: 12px; text-align: left; font-family: inherit; font-size: 14px; cursor: pointer; margin-bottom: 10px; transition: all 0.2s ease; text-decoration: none; }
-        .menu-item:hover { background: #bc13fe; color: #030303; box-shadow: 0 0 15px #bc13fe; font-weight: bold; padding-left: 20px; }
-        .blink { animation: pulse 1s infinite; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #030105;
+            background-image: radial-gradient(circle at 50% 50%, #140526 0%, #030105 100%);
+            color: #bc13fe;
+            font-family: 'Consolas', 'Courier New', monospace;
+            padding: 20px 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        /* Linhas de Varredura CRT */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.3) 50%);
+            z-index: 9999;
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+        .ghost-container {
+            width: 100%;
+            max-width: 750px;
+            background: rgba(7, 3, 12, 0.95);
+            border: 1px solid #bc13fe;
+            box-shadow: 0 0 30px rgba(188, 19, 254, 0.2);
+            padding: 30px 20px;
+            border-radius: 4px;
+        }
+        .status-bar {
+            border-bottom: 1px dashed rgba(188, 19, 254, 0.5);
+            padding-bottom: 12px;
+            margin-bottom: 25px;
+            font-size: 11px;
+            color: #777;
+            display: flex;
+            justify-content: space-between;
+        }
+        .status-online {
+            color: #00ff66;
+            text-shadow: 0 0 8px #00ff66;
+            font-weight: bold;
+        }
+        .ghost-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .ghost-logo {
+            font-size: 55px;
+            text-shadow: 0 0 20px #bc13fe;
+            animation: float 4s ease-in-out infinite;
+            display: inline-block;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-10px) scale(1.05); }
+        }
+        h1 {
+            font-size: 28px;
+            letter-spacing: 4px;
+            color: #fff;
+            text-shadow: 0 0 10px #bc13fe, 0 0 20px #bc13fe;
+            margin-top: 10px;
+        }
+        .intro-text {
+            color: #d8a0ff;
+            font-size: 14px;
+            line-height: 1.6;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 1px dashed rgba(188, 19, 254, 0.3);
+            padding-bottom: 20px;
+        }
+        h2 {
+            font-size: 16px;
+            color: #00ffff;
+            text-shadow: 0 0 8px #00ffff;
+            margin: 25px 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        /* Módulos de Informação (Cards) */
+        .intel-card {
+            background: rgba(20, 5, 35, 0.5);
+            border: 1px solid rgba(188, 19, 254, 0.4);
+            border-left: 4px solid #ff007f;
+            padding: 18px;
+            margin-bottom: 15px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .intel-card:hover {
+            border-color: #bc13fe;
+            box-shadow: 0 0 15px rgba(188, 19, 254, 0.2);
+            transform: translateX(5px);
+        }
+        .intel-title {
+            font-size: 15px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .intel-tag {
+            font-size: 11px;
+            background: #ff007f;
+            color: #fff;
+            padding: 2px 6px;
+            border-radius: 2px;
+            text-shadow: none;
+        }
+        .intel-desc {
+            color: #b5a0cc;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .footer-terminal {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 11px;
+            color: #444;
+        }
+        .blink {
+            animation: pulse 1s infinite;
+        }
         @keyframes pulse { 50% { opacity: 0; } }
     </style>
 </head>
 <body>
+
 <div class="ghost-container">
     <div class="status-bar">
-        <span>LOC: [UNKNOWN_SECTOR]</span>
-        <span>STATUS: <span class="status-online">CONNECTED</span></span>
+        <span>SISTEMA: [GHOST-INTEL-V2]</span>
+        <span>STATUS: <span class="status-online">SECURE ACCESS</span></span>
     </div>
-    <div class="ghost-avatar">👻</div>
-    <h1>GHOST PROTOCOL</h1>
-    <p>Bem-vindo ao diretório criptografado. Identidade oculta, rastros apagados. O que acontece nas sombras permanece invisível aos olhos do sistema.</p>
-    <div class="intel-box">⚠️ ADVERTÊNCIA: Monitoramento de rede ativo. Conexão tunelada via servidores fantasmas de segurança máxima.</div>
-    <div class="menu-list">
-        <a href="#" class="menu-item" onclick="alert('Iniciando varredura oculta...')">> INICIAR OPERAÇÃO</a>
-        <a href="#" class="menu-item" onclick="alert('Carregando bancos de dados criptografados...')">> ARQUIVOS CRIPTOGRAFADOS</a>
-        <a href="#" class="menu-item" onclick="alert('Acesso negado. Nível de autorização insuficiente.')">> TERMINAL DE COMANDO [PROIBIDO]</a>
+    
+    <div class="ghost-header">
+        <div class="ghost-logo">👻</div>
+        <h1>GHOST INTEL</h1>
     </div>
-    <div style="text-align: center; margin-top: 25px; font-size: 12px; color: #555;">GHOST // BY DANBOTATUDO <span class="blink">_</span></div>
+    
+    <div class="intro-text">
+        Diretório tático descriptografado. Análise técnica de engenharia reversa sobre como os maiores grupos de APT (Advanced Persistent Threats) do mundo quebram as defesas corporativas.
+    </div>
+    
+    <h2>⚡ TÁTICAS DE INVASÃO AVANÇADAS</h2>
+    
+    <!-- Card 1 -->
+    <div class="intel-card">
+        <div class="intel-title">
+            <span>01. Engenharia Social de Precisão (Spear-Phishing)</span>
+            <span class="intel-tag" style="background: #ff007f;">VULNERABILIDADE HUMANA</span>
+        </div>
+        <div class="intel-desc">
+            Os maiores hackers não quebram códigos de primeira, eles quebram pessoas. Usando inteligência de fontes abertas (OSINT), criam e-mails, clones de páginas internas e credenciais falsas idênticas às reais. Um único clique de um funcionário de alto escalão abre a porta dos servidores internos sem disparar alarmes.
+        </div>
+    </div>
+    
+    <!-- Card 2 -->
+    <div class="intel-card" style="border-left-color: #00ffff;">
+        <div class="intel-title">
+            <span>02. Exploração de Vulnerabilidades Zero-Day</span>
+            <span class="intel-tag" style="background: #00ffff; color: #000;">FALHA DE SOFTWARE</span>
+        </div>
+        <div class="intel-desc">
+            Vulnerabilidades "Zero-Day" são falhas ocultas em sistemas operacionais ou softwares de segurança que o próprio fabricante ainda não descobriu. Hackers de elite compram ou descobrem essas brechas para invadir redes sem que firewalls ou antivírus tradicionais consigam detectar a assinatura do ataque.
+        </div>
+    </div>
+    
+    <!-- Card 3 -->
+    <div class="intel-card" style="border-left-color: #00ff66;">
+        <div class="intel-title">
+            <span>03. Ataques à Cadeia de Suprimentos (Supply Chain)</span>
+            <span class="intel-tag" style="background: #00ff66; color: #000;">INFRAESTRUTURA</span>
+        </div>
+        <div class="intel-desc">
+            Se uma empresa multinacional tem uma segurança digital impenetrável, os invasores atacam os fornecedores parceiros dela (sistemas de RH, suporte terceirizado ou softwares de terceiros). Ao infectar o código de um fornecedor menor e confiável, o malware entra na empresa principal de carona em uma atualização legítima.
+        </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="intel-card" style="border-left-color: #ffaa00;">
+        <div class="intel-title">
+            <span>04. Movimentação Lateral e Vivendo da Terra (LotL)</span>
+            <span class="intel-tag" style="background: #ffaa00; color: #000;">PÓS-INVASÃO</span>
+        </div>
+        <div class="intel-desc">
+            Uma vez dentro da rede, os invasores usam técnicas conhecidas como "Living off the Land" (Vivendo da Terra). Em vez de instalar ferramentas maliciosas que o antivírus pegaria, eles usam ferramentas de administração legítimas do próprio sistema do alvo (como PowerShell, SSH e WMI) para navegar silenciosamente e capturar dados confidenciais.
+        </div>
+    </div>
+    
+    <div class="footer-terminal">
+        GHOST-INOVX // END OF FILE <span class="blink" style="color: #bc13fe; font-weight: bold;">_</span>
+    </div>
 </div>
+
 </body>
 </html>
