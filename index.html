@@ -1,72 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexoGuard - Inteligência e Segurança Conectada</title>
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --text-color: #c5c6c7;
+            --neon-cyan: #00f0ff;
+            --neon-magenta: #ff007f;
+            --card-bg: #1f2833;
+        }
 
-            <!-- 02. LINUX E SHELL (AZUL PISCANTE) -->
-            <a href="offensive.html#linux-shell" class="course-link">
-                <div class="course-card pulse-blue">
-                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-blue));">🐧</div>
-                    <h3>Dominando o Linux e Shell para Pentesters</h3>
-                    <p style="color: var(--accent-blue);">Infraestrutura de Terminal</p>
-                </div>
-            </a>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-            <!-- 03. AUDITORIA WI-FI (MAGENTA PISCANTE) -->
-            <a href="offensive.html#wifi" class="course-link">
-                <div class="course-card pulse-magenta">
-                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-magenta));">📡</div>
-                    <h3>Auditoria de Redes e Ataques Wi-Fi</h3>
-                    <p style="color: var(--accent-magenta);">Módulo Ofensivo</p>
-                </div>
-            </a>
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-            <!-- 04. PÓS-EXPLORAÇÃO (MAGENTA PISCANTE) -->
-            <a href="offensive.html" class="course-link">
-                <div class="course-card pulse-magenta">
-                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-magenta));">🎒</div>
-                    <h3>Pós-Exploração e Pivotamento Linux</h3>
-                    <p style="color: var(--accent-magenta);">Módulo Ofensivo</p>
-                </div>
-            </a>
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, #1f2833 0%, #0b0c10 100%);
+            border-bottom: 2px solid #1f2833;
+        }
 
-            <!-- 05. DOCKER PENTEST (NOVO - MAGENTA PISCANTE) -->
-            <a href="soc_automation.html" class="course-link">
-                <div class="course-card pulse-magenta">
-                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-magenta));">🐋</div>
-                    <h3>Docker para Pentesters e Containers</h3>
-                    <p style="color: var(--accent-magenta);">Módulo de Infraestrutura</p>
-                </div>
-            </a>
+        header h1 {
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
 
-            <!-- 06. BLUE TEAM (VERDE PISCANTE) -->
-            <a href="defensive.html" class="course-link">
-                <div class="course-card pulse-green">
-                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-green));">🛡️</div>
-                    <h3>Blue Team & Hardening de Servidores</h3>
-                    <p style="color: var(--accent-green);">Módulo Defensivo</p>
-                </div>
-            </a>
+        header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-            <!-- 07. MALWARE ANDROID (VERDE PISCANTE) -->
-            <a href="defensive.html" class="course-link">
-                <div class="course-card pulse-green">
-                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-green));">🤖</div>
-                    <h3>Desenvolvimento de Malwares para Android</h3>
-                    <p style="color: var(--accent-green);">Módulo Avançado Mobile</p>
-                </div>
-            </a>
+        /* Conteúdo Explicativo Gigante */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
 
-            <!-- 08. INTELIGÊNCIA ARTIFICIAL (NOVO - LARANJA PISCANTE) -->
-            <a href="soc_automation.html" class="course-link">
-                <div class="course-card pulse-orange">
-                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-orange));">🧠</div>
-                    <h3>Inteligência Artificial para Pentest Web</h3>
-                    <p style="color: var(--accent-orange);">Módulo Avançado Cognitivo</p>
-                </div>
-            </a>
+        .intro-text {
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+            text-align: justify;
+        }
 
-        </div>
-    </main>
+        /* Grid de 8 Blocos Neon */
+        .grid-blocos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .bloco-neon {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 25px;
+            text-align: left;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .bloco-neon:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Animação Piscante dos Blocos (CSS Puro) */
+        .bloco-neon:nth-child(odd) {
+            animation: piscarCyan 4s infinite alternate;
+        }
+
+        .bloco-neon:nth-child(even) {
+            animation: piscarMagenta 4s infinite alternate-reverse;
+        }
+
+        /* Delay para os blocos não piscarem todos exatamente iguais */
+        .bloco-neon:nth-child(3n) { animation-delay: 0.5s; }
+        .bloco-neon:nth-child(3n+1) { animation-delay: 1.2s; }
+        .bloco-neon:nth-child(3n+2) { animation-delay: 2s; }
+
+        @keyframes piscarCyan {
+            0%, 100% {
+                border: 2px solid #1f2833;
+                box-shadow: none;
+            }
+            45%, 55% {
+                border: 2px solid var(--neon-cyan);
+                box-shadow: 0 0 15px rgba(0, 240, 255, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.2);
+            }
+            50% {
+                border: 2px solid #fff;
+                box-shadow: 0 0 25px var(--neon-cyan), inset 0 0 15px var(--neon-cyan);
+            }
+        }
+
+        @keyframes piscarMagenta {
+            0%, 100% {
+                border: 2px solid #1f2833;
+                box-shadow: none;
+            }
+            45%, 55% {
+                border: 2px solid var(--neon-magenta);
+                box-shadow: 0 0 15px rgba(255, 0, 127, 0.4), inset 0 0 10px rgba(255, 0, 127, 0.2);
+            }
+            50% {
+                border: 2px solid #fff;
+                box-shadow: 0 0 25px var(--neon-magenta), inset 0 0 15px var(--neon-magenta);
+            }
+        }
+
+        .bloco-neon h3 {
+            color: #fff;
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+
+        /* Seções de Texto Profissional Profundo */
+        .secao-detalhada {
+            background-color: #151a21;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            border-left: 4px solid var(--neon-cyan);
+        }
+
+        .secao-detalhada h2 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .secao-detalhada p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+            border-top: 1px solid #1f2833;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>NexoGuard</h1>
+        <p>Infraestrutura escalável, monitoramento e segurança avançada sem fricção digital.</p>
+    </header>
+
+    <div class="container">
+        
+        <section class="intro-text">
+            <h2>Arquitetura e Processamento de Contexto</h2>
+            <p>O NexoGuard foi concebido sob a premissa de entregar máxima performance de carregamento e legibilidade impecável. Esta documentação interativa detalha os pilares operacionais do nosso ecossistema. Eliminamos scripts redundantes de busca para assegurar que o carregamento em dispositivos móveis ocorra de forma instantânea e limpa, mitigando quebras de layout e falhas de runtime.</p>
+        </section>
+
+        <!-- Grade com os 8 Blocos Piscantes -->
+        <main class="grid-blocos">
+            <div class="bloco-neon">
+                <h3>01. Núcleo Isolado</h3>
+                <p>Processamento de dados descentralizado com barramento lógico de alta velocidade.</p>
+            </div>
+            <div class="bloco-neon">
+                <h3>02. Latência Zero</h3>
+                <p>Otimização de requisições de ponta a ponta sem loops de processamento síncrono.</p>
+            </div>
+            <div class="bloco-neon">
+                <h3>03. Resiliência Mobile</h3>
+                <p>Layout totalmente fluido projetado para touchscreens e conexões móveis instáveis.</p>
+            </div>
+            <div class="bloco-neon">
+                <h3>04. Criptografia Viva</h3>
+                <p>Chaves assimétricas rotativas protegendo cada bloco lógico da sua aplicação.</p>
+            </div>
+            <div class="bloco-neon">
+                <h3>05. Design Neon Dinâmico</h3>
+                <p>Interface futurista implementada via animações de hardware aceleradas por GPU.</p>
+            </div>
+            <div class="bloco-neon">
+                <h3>06. Escalaridade Estática</h3>
+                <p>Hospedagem eficiente direto nas bordas do GitHub Pages sem gargalos de servidor.</p>
+            </div>
+            <div class="bloco-neon">
+                <h3>07. Foco Sem Distrações</h3>
+                <p>Conteúdo puramente técnico focado na leitura fluida e na documentação direta.</p>
+            </div>
+            <div class="bloco-neon">
+                <h3>08. Consistência Total</h3>
+                <p>Sincronia perfeita entre a estilização visual sofisticada e a semântica estrutural.</p>
+            </div>
+        </main>
+
+        <!-- Conteúdo Gigante Explicativo Adicional -->
+        <section class="secao-detalhada">
+            <h2>Análise Técnica Operacional</h2>
+            <p>A arquitetura empregada neste repositório resolve o principal problema das páginas estáticas modernas: a sobrecarga de scripts de terceiros. Ao preterir motores complexos de busca client-side no mobile, o NexoGuard prioriza o tempo de resposta interativo (Time to Interactive - TTI).</p>
+            <p>Cada um dos 8 blocos de luz neon utiliza propriedades CSS `box-shadow` e `keyframes` síncronos com atrasos alternados (`animation-delay`). Isso distribui a carga de renderização do navegador, mantendo o scroll de tela liso em celulares antigos e novos.</p>
+        </section>
+
+        <section class="secao-detalhada" style="border-left-color: var(--neon-magenta);">
+            <h2>Manutenção do Repositório</h2>
+            <p>Para expandir o projeto, basta adicionar novas seções textuais ou replicar a classe `.bloco-neon` dentro do grid principal. O CSS recalculará automaticamente a distribuição das colunas, preservando o grid intacto em qualquer resolução.</p>
+        </section>
+
+    </div>
 
     <footer>
-        CYBER SECURITY CORPORATE EDUCATION &copy; 2026 // ACESSO RESTRITO
+        <p>&copy; NexoGuard Projetos Tecnológicos. Executado com sucesso via GitHub Pages.</p>
     </footer>
 
 </body>
