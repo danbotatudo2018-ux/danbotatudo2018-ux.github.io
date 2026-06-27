@@ -4,151 +4,127 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google" content="notranslate">
-    <title>DANIEL CYBER SECURITY</title>
+    <title>DANIEL CYBER SECURITY // HUB</title>
     <style>
+        /* Reset de Estilos e Fontes de Alta Legibilidade */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html, body { 
-            background-color: #030106 !important; 
+            background-color: #06020c !important; 
             color: #ffffff !important; 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important; 
+            font-family: 'Segoe UI', -apple-system, Roboto, Helvetica, Arial, sans-serif !important; 
             min-height: 100vh; 
         }
-        body { padding: 15px 10px; display: flex; justify-content: center; align-items: flex-start; }
+        body { padding: 15px; display: flex; justify-content: center; align-items: flex-start; }
 
-        /* Linhas Digitais CRT */
-        body::before {
-            content: " "; display: block; position: fixed; top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%);
-            z-index: 9999; background-size: 100% 4px; pointer-events: none;
-        }
-
-        .portal-frame {
-            width: 100%; max-width: 800px;
-            background: rgba(9, 4, 15, 0.98) !important;
+        /* Moldura Futurista do Portal */
+        .portal-main-container {
+            width: 100%; max-width: 850px;
+            background: linear-gradient(135deg, #0e051a 0%, #050209 100%) !important;
             border: 2px solid #00ffff !important;
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.25) !important;
-            padding: 25px; border-radius: 6px; margin-top: 10px;
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.3) !important;
+            padding: 30px 20px; border-radius: 8px; margin-top: 10px;
         }
 
-        .system-header { text-align: center; margin-bottom: 25px; border-bottom: 2px solid #00ffff; padding-bottom: 15px; }
-        .system-header h1 { font-family: 'Consolas', monospace !important; font-size: 24px !important; letter-spacing: 2px; color: #ffffff !important; text-shadow: 0 0 10px #00ffff !important; }
-        .system-header p { font-family: 'Consolas', monospace !important; font-size: 11px; color: #bc13fe; letter-spacing: 2px; font-weight: bold; margin-top: 4px; }
+        /* Cabeçalho Limpo e Moderno */
+        .portal-header { text-align: center; margin-bottom: 25px; border-bottom: 2px solid #00ffff; padding-bottom: 20px; }
+        .portal-header h1 { font-family: 'Segoe UI', sans-serif !important; font-size: 28px !important; font-weight: 900 !important; letter-spacing: 2px; color: #ffffff !important; text-shadow: 0 0 15px #00ffff !important; }
+        .portal-header p { font-size: 13px; color: #ff007f; letter-spacing: 3px; font-weight: bold; margin-top: 5px; }
 
-        /* Banner com Imagem Hacker de Alta Resolução */
-        .hacker-banner-img {
-            width: 100%;
-            height: auto;
-            max-height: 250px;
-            object-fit: cover;
-            border: 1px solid #00ffff;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
-            border-radius: 4px;
-            margin-bottom: 25px;
-            display: block;
+        /* Banner de Imagem Hacker em Alta Resolução */
+        .portal-image-banner {
+            width: 100%; height: 260px; object-fit: cover;
+            border: 1px solid #00ffff; box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+            border-radius: 6px; margin-bottom: 30px; display: block;
         }
 
-        /* Sistema de Abas Forçadas (Sem quebra de cache) */
-        .folder-grid { display: flex; flex-direction: column; gap: 15px; margin-top: 10px; }
-        .folder-wrapper { text-decoration: none !important; }
-        
-        .menu-row-btn {
-            width: 100%; background: rgba(25, 10, 45, 0.7) !important;
-            border: 1px solid #bc13fe !important; color: #ffffff !important; padding: 18px;
-            font-family: 'Consolas', monospace !important; font-size: 13px !important; font-weight: bold;
-            text-align: left; cursor: pointer; transition: all 0.2s ease;
-            box-shadow: inset 0 0 10px rgba(188, 19, 254, 0.1);
-            border-radius: 4px;
+        /* Menu de Navegação - Botões Gigantes e Modernos */
+        .navigation-grid { display: flex; flex-direction: column; gap: 15px; }
+        .navigation-anchor { text-decoration: none !important; }
+        .cyber-action-btn {
+            width: 100%; background: #130626 !important; border: 1px solid #ff007f !important; 
+            color: #ffffff !important; padding: 20px; font-size: 15px !important; 
+            font-weight: bold !important; text-align: left; cursor: pointer; 
+            transition: all 0.2s ease; border-radius: 6px; display: flex; justify-content: space-between; align-items: center;
         }
-        .menu-row-btn:hover { background: #00ffff !important; color: #030106 !important; border-color: #00ffff !important; box-shadow: 0 0 20px #00ffff !important; padding-left: 25px; }
+        .cyber-action-btn::after { content: "➔"; color: #00ffff; font-size: 16px; }
+        .cyber-action-btn:hover { background: #ff007f !important; color: #ffffff !important; border-color: #ff007f !important; box-shadow: 0 0 25px #ff007f !important; padding-left: 28px; }
 
-        .sub-page { display: none; margin-top: 5px; }
-        
-        /* Mecânica Ativa de Visualização das Páginas */
-        #attack:target, #roadmap:target, #osint:target, #malware:target { display: block !important; }
-        #attack:target ~ #hub-menu, #roadmap:target ~ #hub-menu, #osint:target ~ #hub-menu, #malware:target ~ #hub-menu { display: none !important; }
+        /* Controle Blindado das Páginas Ocultas */
+        .cyber-page-content { display: none; margin-top: 5px; animation: fade-in-view 0.3s ease forwards; }
+        @keyframes fade-in-view { from { opacity: 0; } to { opacity: 1; } }
+
+        #chain:target, #pentest:target, #osint:target, #malware:target, #defense:target, #tools:target { display: block !important; }
+        #chain:target ~ #hub-menu, #pentest:target ~ #hub-menu, #osint:target ~ #hub-menu, #malware:target ~ #hub-menu, #defense:target ~ #hub-menu, #tools:target ~ #hub-menu { display: none !important; }
         #hub-menu { display: block !important; }
 
-        /* Estilos das Páginas de Informações */
-        h2 { font-family: 'Consolas', monospace !important; font-size: 16px !important; color: #00ffff !important; text-shadow: 0 0 8px rgba(0,255,255,0.4); margin-bottom: 20px; border-left: 4px solid #00ffff; padding-left: 12px; text-transform: uppercase; }
+        /* Elementos das Páginas Internas */
+        h2 { font-size: 20px !important; color: #00ffff !important; text-shadow: 0 0 10px rgba(0,255,255,0.4); margin-bottom: 20px; border-left: 5px solid #00ffff; padding-left: 12px; }
+        .page-description-text { color: #e2d5f0 !important; font-size: 15px !important; line-height: 1.6; margin-bottom: 25px; }
         
-        .timeline-container { padding-left: 15px; border-left: 2px dashed rgba(188, 19, 254, 0.4); }
-        .step-block { margin-bottom: 25px; position: relative; }
-        .step-block::before { content: "●"; position: absolute; left: -22px; top: -2px; color: #00ff66; font-size: 16px; text-shadow: 0 0 5px #00ff66; }
-        .step-title { font-size: 15px !important; font-weight: bold !important; color: #ffffff !important; margin-bottom: 6px; font-family: 'Consolas', monospace !important; }
-        .step-text { color: #e2d5f0 !important; font-size: 14px !important; line-height: 1.6; background: rgba(255,255,255,0.03); padding: 15px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
+        /* Blocos de Informações Sólidas (Cards) */
+        .info-data-card { background: rgba(25, 10, 45, 0.4) !important; border: 1px solid rgba(188, 19, 254, 0.4) !important; border-left: 5px solid #00ff66 !important; padding: 20px; margin-bottom: 18px; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .info-data-card-title { font-size: 17px !important; font-weight: bold !important; color: #ffffff !important; margin-bottom: 8px; }
+        .info-data-card-body { color: #f0e6f8 !important; font-size: 14.5px !important; line-height: 1.6; }
+        .info-data-card-body strong { color: #00ff66 !important; }
 
-        .back-btn { display: inline-block; margin-top: 15px; color: #00ffff !important; text-decoration: none !important; border: 1px solid #00ffff !important; padding: 10px 18px; font-family: 'Consolas', monospace !important; font-size: 12px !important; font-weight: bold; border-radius: 4px; }
-        .back-btn:hover { background: #00ffff !important; color: #030106 !important; box-shadow: 0 0 12px #00ffff !important; }
-        .sys-footer { text-align: center; margin-top: 40px; font-size: 11px; color: #555; border-top: 1px dashed rgba(0,255,255,0.2); padding-top: 15px; font-family: 'Consolas', monospace !important; }
+        /* Botão de Retorno Técnico */
+        .return-menu-btn { display: inline-block; margin-top: 20px; color: #00ffff !important; text-decoration: none !important; border: 2px solid #00ffff !important; padding: 12px 24px; font-size: 14px !important; font-weight: bold; border-radius: 6px; text-transform: uppercase; background: transparent; }
+        .return-menu-btn:hover { background: #00ffff !important; color: #06020c !important; box-shadow: 0 0 20px #00ffff !important; }
+        .portal-footer { text-align: center; margin-top: 40px; font-size: 12px; color: #666; border-top: 1px dashed rgba(0,255,255,0.2); padding-top: 15px; }
     </style>
 </head>
 <body>
 
-<div class="portal-frame">
-    <div class="system-header">
+<div class="portal-main-container">
+    <div class="portal-header">
         <h1>DANIEL CYBER SECURITY</h1>
-        <p>// OPERATIONAL FILE MANAGER</p>
+        <p>// SYSTEMS INTEL INFRASTRUCTURE</p>
     </div>
 
-    <!-- IMAGEM HACKER REAL QUE NÃO QUEBRA -->
-    <img src="https://github.com" alt="Cyber Grid Image" class="hacker-banner-img" style="background: #11052c; content: url('https://unsplash.com');">
+    <!-- IMAGEM CENTRALIZADA EM ALTA RESOLUÇÃO E VELOCIDADE -->
+    <img src="https://unsplash.com" alt="Cyber Security Infrastructure" class="portal-image-banner">
 
-    <!-- PÁGINA 1: CADEIA DE ATAQUE -->
-    <div id="attack" class="sub-page">
-        <h2>⚔️ CRONOGRAMA DE INVASÃO (CYBER KILL CHAIN)</h2>
-        <div class="timeline-container">
-            <div class="step-block">
-                <div class="step-title" style="color: #00ffff;">01. Reconhecimento Avançado</div>
-                <div class="step-text">Invasores mapeiam toda a infraestrutura externa do alvo usando ferramentas automatizadas de varredura. Eles coletam subdomínios, e-mails corporativos expostos e logs públicos para encontrar portas abertas e serviços desatualizados.</div>
-            </div>
-            <div class="step-block">
-                <div class="step-title" style="color: #ffaa00;">02. Vetor de Entrada</div>
-                <div class="step-text">Os payloads maliciosos são ocultados dentro de arquivos legítimos e enviados por campanhas de Spear-Phishing altamente direcionadas para funcionários com privilégios de administrador, ou explorando brechas diretas em servidores expostos.</div>
-            </div>
-            <div class="step-block">
-                <div class="step-title" style="color: #ff007f;">03. Movimentação e Exfiltração</div>
-                <div class="step-text">Após controlar o primeiro computador, os atacantes capturam as credenciais da memória interna. Eles navegam de servidor em servidor de forma silenciosa até dominar o controlador de domínio central e roubar todos os dados confidenciais antes do ataque final.</div>
-            </div>
+    <!-- PÁGINA 1: CADEIA DE ATAQUE (CYBER KILL CHAIN) -->
+    <div id="chain" class="cyber-page-content">
+        <h2>⚔️ ORDEM CRONOLÓGICA: CRONOGRAMA DE UM ATAQUE HACKER</h2>
+        <p class="page-description-text">Os grupos APT (Advanced Persistent Threats) mais letais do mundo utilizam uma linha do tempo tática dividida em fases para invadir e destruir redes corporativas:</p>
+        
+        <div class="info-data-card">
+            <div class="info-data-card-title">Fase 01: Reconhecimento e Coleta de Inteligência</div>
+            <div class="info-data-card-body">A invasão começa meses antes de qualquer código ser enviado. Os atacantes usam varreduras de código para minerar e-mails no LinkedIn, descobrem servidores de teste expostos e fazem o mapeamento completo das versões de softwares usados pelo alvo.</div>
         </div>
-        <a href="#" class="back-btn">&lt; VOLTAR AO MENU</a>
-    </div>
-
-    <!-- PÁGINA 2: ROADMAP PENTESTER -->
-    <div id="roadmap" class="sub-page">
-        <h2>💎 TRILHA DE ESTUDOS: PENTESTER ÉTICO ELITE</h2>
-        <div class="timeline-container" style="border-left-color: rgba(0, 255, 102, 0.4);">
-            <div class="step-block">
-                <div class="step-title">Fase 01. Arquitetura e Fluxo de Redes</div>
-                <div class="step-text">Domínio profundo do modelo TCP/IP, requisições HTTP estruturais, cabeçalhos de requisição, manipulação e análise de tráfego de pacotes brutos com analisadores como o Wireshark e gerenciamento de servidores DNS.</div>
-            </div>
-            <div class="step-block">
-                <div class="step-title">Fase 02. Kernels e Terminais de Comando</div>
-                <div class="step-text">Esqueça sistemas com interface gráfica. Um hacker ético profissional controla processos, partições e permissões complexas de arquivos diretamente pelas linhas de comando do Linux e das estruturas internas do Active Directory do Windows.</div>
-            </div>
-            <div class="step-block">
-                <div class="step-title">Fase 03. Prática Ofensiva Real</div>
-                <div class="step-text">Estudo detalhado dos frameworks internacionais de falhas (como o OWASP Top 10) combinado com treinamento prático intenso explorando laboratórios que simulam redes corporativas reais, como a plataforma Hack The Box.</div>
-            </div>
+        <div class="info-data-card" style="border-left-color: #ffaa00 !important;">
+            <div class="info-data-card-title">Fase 02: Infiltração e Ganho de Acesso Inicial</div>
+            <div class="info-data-card-body">Os atacantes criam páginas de login falsas extremamente idênticas às reais e enviam e-mails de Spear-Phishing cirúrgicos. Caso a empresa possua defesas fortes, eles exploram falhas críticas de servidores de VPN desatualizados para entrar na rede corporativa.</div>
         </div>
-        <a href="#" class="back-btn">&lt; VOLTAR AO MENU</a>
-    </div>
-
-    <!-- MENU PRINCIPAL COM ABAS FORÇADAS -->
-    <div id="hub-menu" class="sub-page">
-        <div class="folder-grid">
-            <a href="#attack" class="folder-wrapper">
-                <button class="menu-row-btn">&gt; 01. DIRETÓRIO: CYBER KILL CHAIN</button>
-            </a>
-            <a href="#roadmap" class="folder-wrapper">
-                <button class="menu-row-btn">&gt; 02. DIRETÓRIO: ROADMAP ETHICAL HACKER</button>
-            </a>
+        <div class="info-data-card" style="border-left-color: #ff007f !important;">
+            <div class="info-data-card-title">Fase 03: Movimentação Lateral e Exfiltração</div>
+            <div class="info-data-card-body">Uma vez dentro de um computador simples, os invasores coletam dados de memória e roubam tokens de sessão. Eles navegam de servidor em servidor de forma silenciosa até controlar a conta do administrador da rede, compactando e roubando os dados sigilosos.</div>
         </div>
+        <a href="#" class="return-menu-btn">&lt; VOLTAR AO MENU PRINCIPAL</a>
     </div>
 
-    <div class="sys-footer">
-        DANIEL CYBER SECURITY // FILE SYSTEM ROOT _
+    <!-- PÁGINA 2: ROADMAP PENTESTER ÉTICO -->
+    <div id="pentest" class="cyber-page-content">
+        <h2>💎 GUIA OFICIAL: COMO SE TORNAR UM HACKER ÉTICO PRO</h2>
+        <p class="page-description-text">Se tornar um analista de segurança ofensiva (Pentester) exige um roteiro de estudos sólido focado em engenharia de verdade, e não em rodar ferramentas automáticas:</p>
+        
+        <div class="info-data-card" style="border-left-color: #00ffff !important;">
+            <div class="info-data-card-title">Passo 01: Infraestrutura de Redes e Protocolos</div>
+            <div class="info-data-card-body">A base absoluta é entender o tráfego de dados. É obrigatório dominar o <strong>Modelo TCP/IP</strong>, cabeçalhos de pacotes, requisições estruturadas HTTP/HTTPS, funcionamento interno de servidores DNS e ferramentas de interceptação de rede de baixo nível como o Wireshark.</div>
+        </div>
+        <div class="info-data-card" style="border-left-color: #00ffff !important;">
+            <div class="info-data-card-title">Passo 02: Administração de Sistemas Operacionais</div>
+            <div class="info-data-card-body">Um hacker opera no terminal de comando. Você precisa aprender profundamente a arquitetura de <strong>Sistemas Linux</strong> (manipulação de processos, arquivos e permissões) e o funcionamento corporativo do Windows (Active Directory e logs de auditoria).</div>
+        </div>
+        <div class="info-data-card" style="border-left-color: #00ffff !important;">
+            <div class="info-data-card-title">Passo 03: Certificações Práticas Reconhecidas</div>
+            <div class="info-data-card-body">Treine exaustivamente invadindo laboratórios e simuladores de redes reais no Hack The Box. Valide sua carreira com certificações cujo exame exige invasões práticas de servidores em ambientes cronometrados de 24 horas, como as renomadas <strong>eJPT</strong> e <strong>OSCP</strong>.</div>
+        </div>
+        <a href="#" class="return-menu-btn">&lt; VOLTAR AO MENU PRINCIPAL</a>
     </div>
-</div>
 
-</body>
-</html>
+    <!-- PÁGINA 3: INVESTIGAÇÃO OSINT -->
+    <div id="osint" class="cyber-page-content">
+        <h2>🌐 TÁTICAS DE INVESTIGAÇÃO DE FONTES ABERTAS (OSINT)</h2>
+        <p class="page-description-text">OSINT é o conjunto de técnicas avançadas para coletar, minerar e cruzar informações que estão publicamente expostas na internet:</p>
