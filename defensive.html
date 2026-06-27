@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYBER SECURITY - DEFENSIVE OPERATIONS</title>
+    <title>CYBER SECURITY - DEFENSIVE INTEL & REVERSING</title>
     <style>
         :root {
             --bg-main: #060913;
@@ -14,60 +14,58 @@
             --text-desc: #94a3b8;
             --border-color: rgba(255, 255, 255, 0.05);
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, sans-serif; }
-        body { background-color: var(--bg-main); color: #ffffff; padding: 15px; line-height: 1.6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: var(--bg-main); color: #ffffff; padding: 15px; line-height: 1.7; }
         .nav-back { color: var(--accent-blue); text-decoration: none; font-family: monospace; display: inline-block; margin-bottom: 20px; font-weight: bold; font-size: 0.85rem; }
-        .section-title { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; margin-bottom: 25px; color: #ffffff; border-left: 4px solid var(--accent-green); padding-left: 12px; }
+        .section-title { font-size: 1.2rem; font-weight: 700; text-transform: uppercase; margin-bottom: 25px; color: #ffffff; border-left: 4px solid var(--accent-green); padding-left: 12px; letter-spacing: 0.5px; }
         
-        .knowledge-section { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 15 rgba(0,0,0,0.2); }
-        .knowledge-section h3 { font-size: 1.2rem; color: #ffffff; margin-bottom: 12px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 6px; }
+        .knowledge-section { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .knowledge-section h3 { font-size: 1.3rem; color: #ffffff; margin-bottom: 15px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 8px; font-weight: 700; }
         
-        .topic-block { margin-bottom: 20px; }
-        .topic-title { font-size: 0.95rem; font-weight: 700; color: var(--accent-green); margin-bottom: 6px; text-transform: uppercase; font-family: monospace; }
-        .knowledge-section p { color: var(--text-desc); font-size: 0.9rem; margin-bottom: 10px; }
+        .topic-block { margin-bottom: 25px; }
+        .topic-title { font-size: 1rem; font-weight: 700; color: var(--accent-green); margin-bottom: 10px; text-transform: uppercase; font-family: monospace; letter-spacing: 0.5px; }
+        .knowledge-section p { color: var(--text-desc); font-size: 0.95rem; margin-bottom: 15px; text-align: justify; }
         
-        .bullet-list { margin-left: 20px; margin-bottom: 10px; }
-        .bullet-list li { color: var(--text-desc); font-size: 0.9rem; margin-bottom: 8px; list-style-type: square; }
-        .bullet-list strong { color: #ffffff; }
+        .bullet-list { margin-left: 20px; margin-bottom: 15px; }
+        .bullet-list li { color: var(--text-desc); font-size: 0.95rem; margin-bottom: 10px; list-style-type: square; line-height: 1.6; }
     </style>
 </head>
 <body>
 
     <a href="index.html" class="nav-back">← RETORNAR À ÁRVORE DE CURSOS</a>
-    <h2 class="section-title">Repositório de Conhecimento // Trilha Defensiva</h2>
+    <h2 class="section-title">Módulo Defensivo // Resiliência e Engenharia Mobile</h2>
 
-    <!-- PROTEÇÃO WI-FI DETALHADA -->
+    <!-- BLUE TEAM & HARDENING -->
     <section class="knowledge-section">
-        <h3>Ensino Avançado de Proteção de Redes Sem Fio</h3>
+        <h3>Blue Team & Hardening Avançado de Servidores</h3>
         
         <div class="topic-block">
-            <div class="topic-title">Mecanismo Protected Management Frames (PMF - IEEE 802.11w)</div>
-            <p>A contramedida definitiva contra a derrubada forçada de dispositivos de uma rede sem fio baseia-se na ativação dos quadros de gerenciamento protegidos. Em roteadores comuns de mercado, os frames que controlam a desconexão trafegam em texto claro e sem cifra. Ao habilitar o padrão PMF nas configurações de segurança corporativas, o roteador passa a criptografar e validar digitalmente esses pacotes, anulando por completo a eficácia de ataques de injeção como os ataques Deauth.</p>
+            <div class="topic-title">Defesa Ativa Perimetral e Redução de Superfície de Exposição</div>
+            <p>A engenharia de Blue Team opera sob o princípio de resiliência e fortalecimento contínuo (Hardening) de sistemas. Proteger redes corporativas envolve auditar exaustivamente a superfície externa exposta à internet. Analistas utilizam inventários automatizados para mapear de forma rigorosa as portas de comunicação de rede do Kernel Linux, fechando imediatamente soquetes orfãos de serviços que não deveriam estar ouvindo requisições externas.</p>
+            <p>O isolamento perimetral exige a parametrização de firewalls robustos a nível de sistema operacional (como tabelas do Netfilter/IPTables), bloqueando tentativas laterais de varreduras de varredura automatizadas efetuadas por atacantes que buscam portas administrativas inseguras como SSH ou RDP.</p>
         </div>
 
         <div class="topic-block">
-            <div class="topic-title">Arquiteturas Baseadas em Autenticação por Certificados (802.1X)</div>
-            <p>Substituir o modelo comum de senhas estáticas e pré-compartilhadas (WPA2-PSK) por autenticações corporativas centralizadas (WPA3-Enterprise / EAP-TLS). Nessa metodologia de alta segurança, chaves comuns não existem. Cada smartphone ou notebook recebe um certificado criptográfico digital exclusivo emitido por uma Autoridade Certificadora interna integrado a servidores RADIUS, eliminando por completo a viabilidade técnica de captura e quebra de handshakes.</p>
+            <div class="topic-title">Mitigação de Ameaças Sem Arquivo (Fileless Malware Prevention)</div>
+            <p>Para mitigar ataques sofisticados baseados em execução em memória RAM viva — onde grupos criminosos (como o LockBit) injetam shellcodes diretamente em processos assinados legítimos do Windows ou Linux (Process Hollowing) para contornar antivírus de assinaturas estáticas —, o Blue Team implementa regras rigorosas de Endpoint Detection and Response (EDR).</p>
+            <p>Essas ferramentas monitoram continuamente a integridade de chamadas de sistema (Syscalls) do Kernel. Somado a isso, aplicam-se políticas rígidas de whitelisting baseadas em criptografia (como WDAC e AppLocker), garantindo que apenas scripts administrativos validados e binários homologados consigam ser executados a nível de hardware.</p>
         </div>
     </section>
 
-    <!-- HARDENING E SERVIDORES -->
+    <!-- MALWARE ANDROID -->
     <section class="knowledge-section">
-        <h3>Mitigação de Riscos em Endpoints, Servidores e Memória RAM</h3>
+        <h3>Desenvolvimento e Engenharia Reversa de Malwares para Android</h3>
         
         <div class="topic-block">
-            <div class="topic-title">Compreendendo o Funcionamento de Ataques Sem Arquivos (Fileless Malware)</div>
-            <p>Grupos globais de ransomware de alta periculosidade (como o LockBit) evitam salvar arquivos executáveis físicos diretamente nos discos rígidos dos servidores afetados. Isso impossibilita a detecção por parte de softwares de antivírus tradicionais baseados em assinaturas estáticas de arquivos.</p>
-            <p>Eles utilizam consoles nativos e confiáveis do próprio sistema (como PowerShell ou Bash administrativo) para injetar shellcodes maliciosos diretamente dentro da memória RAM virtual viva alocada para processos legítimos do sistema operacional (técnica conhecida como Process Hollowing), operando ocultos na memória volátil.</p>
+            <div class="topic-title">Mecanismos de Persistência e Exploração no Ecossistema Mobile</div>
+            <p>A arquitetura de segurança do sistema operacional Android é baseada em diretrizes rígidas de sandboxing, onde cada aplicativo roda isolado em seu próprio espaço de usuário protegido. No entanto, campanhas complexas de espionagem cibernética (desenvolvidas por sindicatos como o Lazarus Group) burlam essas defesas abusando sistematicamente das APIs dos Serviços de Acessibilidade (Accessibility Services) do aparelho móvel.</p>
+            <p>Atacantes usam engenharia reversa para descompilar arquivos APK legítimos de utilitários comuns e injetar códigos de persistência maliciosos (Payloads ocultos). Uma vez instalados fora das lojas oficiais por meio de sideloading, o malware induz o usuário ao erro e obtém privilégios de acessibilidade. A partir desse instante, o vírus passa a realizar leituras automatizadas das telas de bancos, captura dados de teclado, intercepta logs de mensagens de SMS contendo senhas e exfiltra chaves de dupla autenticação (MFA).</p>
         </div>
 
         <div class="topic-block">
-            <div class="topic-title">Princípios de Hardening de Sistemas Operacionais e Redes</div>
-            <ul class="bullet-list">
-                <li><strong>Arquitetura Zero Trust (Confiança Zero):</strong> Modelo analítico estruturado sob o conceito de "nunca confiar, sempre verificar". Exige autenticação contínua e isolamento rigoroso de requisições de rede.</li>
-                <li><strong>Auditoria de Portas do Kernel e Firewalling:</strong> Monitoramento ativo de soquetes abertos e listeners no sistema para identificar conexões de backdoors anômalas, bloqueando tráfegos de entrada não homologados.</li>
-                <li><strong>Políticas Estritas de Whitelisting (WDAC):</strong> Restrições severas a nível de sistema operacional para impedir o carregamento de DLLs ou o acionamento de scripts automatizados por usuários comuns.</li>
-            </ul>
+            <div class="topic-title">Processo de Engenharia Reversa e Análise de Código Smali</div>
+            <p>Para analisar e desarmar essas ameaças mobile, especialistas de segurança realizam o desmembramento completo do pacote APK de volta aos seus arquivos estruturais brutos através de ferramentas como o `apktool`. O código compilado em classes Dex é convertido em arquivos legíveis de código `Smali` (a linguagem assembly do ambiente virtual do Android).</p>
+            <p>Os analistas varrem esses documentos em busca de strings ofuscadas, chaves criptográficas embutidas no código (hardcoded), mapeamento de IPs de servidores C2 (Comando e Controle) e chamadas abusivas de APIs do sistema, gerando relatórios de inteligência que alimentam os bancos de dados de detecção globais.</p>
         </div>
     </section>
 
