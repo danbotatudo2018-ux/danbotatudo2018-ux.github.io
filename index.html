@@ -1,214 +1,163 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GHOST // Intelligence Portal</title>
+    <title>GHOST // CYBER SECURITY PORTAL</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            background-color: #030105;
-            background-image: radial-gradient(circle at 50% 50%, #140526 0%, #030105 100%);
+            background-color: #020104;
+            background-image: radial-gradient(circle at 50% 50%, #110322 0%, #020104 100%);
             color: #bc13fe;
             font-family: 'Consolas', 'Courier New', monospace;
-            padding: 20px 10px;
+            padding: 15px 10px;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            align-items: flex-start;
         }
-        /* Linhas de Varredura CRT */
         body::before {
-            content: " ";
-            display: block;
-            position: fixed;
-            top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.3) 50%);
-            z-index: 9999;
-            background-size: 100% 4px;
-            pointer-events: none;
+            content: " "; display: block; position: fixed; top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%);
+            z-index: 9999; background-size: 100% 4px; pointer-events: none;
         }
-        .ghost-container {
-            width: 100%;
-            max-width: 750px;
-            background: rgba(7, 3, 12, 0.95);
+        .main-frame {
+            width: 100%; max-width: 850px;
+            background: rgba(6, 2, 12, 0.98);
             border: 1px solid #bc13fe;
-            box-shadow: 0 0 30px rgba(188, 19, 254, 0.2);
-            padding: 30px 20px;
-            border-radius: 4px;
+            box-shadow: 0 0 35px rgba(188, 19, 254, 0.25);
+            padding: 20px; border-radius: 4px; margin-top: 10px;
         }
-        .status-bar {
-            border-bottom: 1px dashed rgba(188, 19, 254, 0.5);
-            padding-bottom: 12px;
-            margin-bottom: 25px;
-            font-size: 11px;
-            color: #777;
-            display: flex;
-            justify-content: space-between;
+        .top-info {
+            display: flex; justify-content: space-between;
+            font-size: 11px; color: #666; border-bottom: 1px dashed rgba(188, 19, 254, 0.3);
+            padding-bottom: 10px; margin-bottom: 20px;
         }
-        .status-online {
-            color: #00ff66;
-            text-shadow: 0 0 8px #00ff66;
-            font-weight: bold;
-        }
-        .ghost-header {
+        .title-area { text-align: center; margin-bottom: 25px; }
+        .logo-animation { font-size: 45px; text-shadow: 0 0 20px #bc13fe; animation: pulseGlow 2s ease-in-out infinite; }
+        @keyframes pulseGlow { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.05); opacity: 1; text-shadow: 0 0 30px #bc13fe; } }
+        h1 { font-size: 26px; letter-spacing: 5px; color: #fff; text-shadow: 0 0 10px #bc13fe; margin-top: 5px; }
+        
+        /* Box de boas-vindas especial para a Milena */
+        .welcome-milena {
+            background: rgba(188, 19, 254, 0.05);
+            border: 1px solid #bc13fe;
+            padding: 15px;
             text-align: center;
-            margin-bottom: 30px;
-        }
-        .ghost-logo {
-            font-size: 55px;
-            text-shadow: 0 0 20px #bc13fe;
-            animation: float 4s ease-in-out infinite;
-            display: inline-block;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) scale(1); }
-            50% { transform: translateY(-10px) scale(1.05); }
-        }
-        h1 {
-            font-size: 28px;
-            letter-spacing: 4px;
-            color: #fff;
-            text-shadow: 0 0 10px #bc13fe, 0 0 20px #bc13fe;
-            margin-top: 10px;
-        }
-        .intro-text {
-            color: #d8a0ff;
-            font-size: 14px;
-            line-height: 1.6;
-            text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 1px dashed rgba(188, 19, 254, 0.3);
-            padding-bottom: 20px;
-        }
-        h2 {
             font-size: 16px;
-            color: #00ffff;
-            text-shadow: 0 0 8px #00ffff;
-            margin: 25px 0 15px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        /* Módulos de Informação (Cards) */
-        .intel-card {
-            background: rgba(20, 5, 35, 0.5);
-            border: 1px solid rgba(188, 19, 254, 0.4);
-            border-left: 4px solid #ff007f;
-            padding: 18px;
-            margin-bottom: 15px;
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-        .intel-card:hover {
-            border-color: #bc13fe;
-            box-shadow: 0 0 15px rgba(188, 19, 254, 0.2);
-            transform: translateX(5px);
-        }
-        .intel-title {
-            font-size: 15px;
             font-weight: bold;
             color: #fff;
-            margin-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
+            text-shadow: 0 0 8px #bc13fe;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            box-shadow: inset 0 0 10px rgba(188, 19, 254, 0.2);
         }
-        .intel-tag {
-            font-size: 11px;
-            background: #ff007f;
-            color: #fff;
-            padding: 2px 6px;
-            border-radius: 2px;
-            text-shadow: none;
+
+        /* Sistema de Abas */
+        .tab-menu { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 25px; border-bottom: 1px solid rgba(188, 19, 254, 0.4); padding-bottom: 15px; }
+        .tab-btn {
+            flex: 1; min-width: 130px; background: rgba(20, 5, 35, 0.6);
+            border: 1px solid #bc13fe; color: #bc13fe; padding: 12px 5px;
+            font-family: inherit; font-size: 12px; font-weight: bold; cursor: pointer;
+            text-align: center; transition: all 0.2s ease;
         }
-        .intel-desc {
-            color: #b5a0cc;
-            font-size: 13px;
-            line-height: 1.6;
-        }
-        .footer-terminal {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 11px;
-            color: #444;
-        }
-        .blink {
-            animation: pulse 1s infinite;
-        }
+        .tab-btn:hover { background: rgba(188, 19, 254, 0.2); box-shadow: 0 0 10px rgba(188, 19, 254, 0.4); color: #fff; }
+        .tab-btn.active { background: #bc13fe; color: #020104; box-shadow: 0 0 15px #bc13fe; }
+
+        /* Container de Conteúdo Dinâmico */
+        .content-panel { display: none; animation: fadeIn 0.4s ease forwards; }
+        .content-panel.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Estilização Interna das Páginas */
+        h2 { font-size: 16px; color: #00ffff; text-shadow: 0 0 8px #00ffff; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; border-left: 3px solid #00ffff; padding-left: 10px; }
+        p { color: #cbb3e0; font-size: 14px; line-height: 1.6; margin-bottom: 15px; }
+        
+        .grid-cards { display: grid; grid-template-columns: 1fr; gap: 15px; }
+        @media(min-width: 600px) { .grid-cards { grid-template-columns: 1fr 1fr; } }
+        
+        .info-card { background: rgba(15, 5, 25, 0.7); border: 1px solid rgba(188, 19, 254, 0.3); padding: 15px; border-radius: 2px; }
+        .card-header { font-size: 14px; font-weight: bold; color: #fff; margin-bottom: 8px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px; }
+        .card-body { color: #a491b5; font-size: 12.5px; line-height: 1.5; }
+        
+        .alert-box { background: rgba(255, 0, 127, 0.1); border: 1px solid #ff007f; color: #ff80bf; padding: 15px; margin-bottom: 20px; font-size: 13px; border-radius: 2px; }
+        
+        .step-list { margin-left: 20px; margin-bottom: 15px; color: #cbb3e0; font-size: 13.5px; }
+        .step-list li { margin-bottom: 8px; }
+        .step-list strong { color: #00ff66; text-shadow: 0 0 5px rgba(0,255,102,0.3); }
+
+        .footer { text-align: center; margin-top: 40px; font-size: 11px; color: #444; border-top: 1px dashed rgba(188,19,254,0.2); padding-top: 15px; }
+        .blink { animation: pulse 1s infinite; }
         @keyframes pulse { 50% { opacity: 0; } }
     </style>
 </head>
 <body>
 
-<div class="ghost-container">
-    <div class="status-bar">
-        <span>SISTEMA: [GHOST-INTEL-V2]</span>
-        <span>STATUS: <span class="status-online">SECURE ACCESS</span></span>
+<div class="main-frame">
+    <div class="top-info">
+        <span>SISTEMA: [GHOST-CORE-v3.1]</span>
+        <span>STATUS: <span class="status-online" style="color:#00ff66; text-shadow:0 0 5px #00ff66;">CORE_ACTIVE</span></span>
     </div>
     
-    <div class="ghost-header">
-        <div class="ghost-logo">👻</div>
-        <h1>GHOST INTEL</h1>
-    </div>
-    
-    <div class="intro-text">
-        Diretório tático descriptografado. Análise técnica de engenharia reversa sobre como os maiores grupos de APT (Advanced Persistent Threats) do mundo quebram as defesas corporativas.
-    </div>
-    
-    <h2>⚡ TÁTICAS DE INVASÃO AVANÇADAS</h2>
-    
-    <!-- Card 1 -->
-    <div class="intel-card">
-        <div class="intel-title">
-            <span>01. Engenharia Social de Precisão (Spear-Phishing)</span>
-            <span class="intel-tag" style="background: #ff007f;">VULNERABILIDADE HUMANA</span>
-        </div>
-        <div class="intel-desc">
-            Os maiores hackers não quebram códigos de primeira, eles quebram pessoas. Usando inteligência de fontes abertas (OSINT), criam e-mails, clones de páginas internas e credenciais falsas idênticas às reais. Um único clique de um funcionário de alto escalão abre a porta dos servidores internos sem disparar alarmes.
-        </div>
-    </div>
-    
-    <!-- Card 2 -->
-    <div class="intel-card" style="border-left-color: #00ffff;">
-        <div class="intel-title">
-            <span>02. Exploração de Vulnerabilidades Zero-Day</span>
-            <span class="intel-tag" style="background: #00ffff; color: #000;">FALHA DE SOFTWARE</span>
-        </div>
-        <div class="intel-desc">
-            Vulnerabilidades "Zero-Day" são falhas ocultas em sistemas operacionais ou softwares de segurança que o próprio fabricante ainda não descobriu. Hackers de elite compram ou descobrem essas brechas para invadir redes sem que firewalls ou antivírus tradicionais consigam detectar a assinatura do ataque.
-        </div>
-    </div>
-    
-    <!-- Card 3 -->
-    <div class="intel-card" style="border-left-color: #00ff66;">
-        <div class="intel-title">
-            <span>03. Ataques à Cadeia de Suprimentos (Supply Chain)</span>
-            <span class="intel-tag" style="background: #00ff66; color: #000;">INFRAESTRUTURA</span>
-        </div>
-        <div class="intel-desc">
-            Se uma empresa multinacional tem uma segurança digital impenetrável, os invasores atacam os fornecedores parceiros dela (sistemas de RH, suporte terceirizado ou softwares de terceiros). Ao infectar o código de um fornecedor menor e confiável, o malware entra na empresa principal de carona em uma atualização legítima.
-        </div>
+    <div class="title-area">
+        <div class="logo-animation">💀</div>
+        <h1>GHOST SECURITY</h1>
     </div>
 
-    <!-- Card 4 -->
-    <div class="intel-card" style="border-left-color: #ffaa00;">
-        <div class="intel-title">
-            <span>04. Movimentação Lateral e Vivendo da Terra (LotL)</span>
-            <span class="intel-tag" style="background: #ffaa00; color: #000;">PÓS-INVASÃO</span>
-        </div>
-        <div class="intel-desc">
-            Uma vez dentro da rede, os invasores usam técnicas conhecidas como "Living off the Land" (Vivendo da Terra). Em vez de instalar ferramentas maliciosas que o antivírus pegaria, eles usam ferramentas de administração legítimas do próprio sistema do alvo (como PowerShell, SSH e WMI) para navegar silenciosamente e capturar dados confidenciais.
+    <!-- MENSAGEM DE BOAS-VINDAS À MILENA -->
+    <div class="welcome-milena">
+        👋 Bem-vinda Milena ao meu primeiro site! _
+    </div>
+    
+    <!-- Abas de Navegação Dinâmica -->
+    <div class="tab-menu">
+        <button class="tab-btn active" onclick="openTab('ataque')">01. TÁTICAS DE ATAQUE</button>
+        <button class="tab-btn" onclick="openTab('defesa')">02. GUIA DE DEFESA</button>
+        <button class="tab-btn" onclick="openTab('carreira')">03. HACKER ÉTICO</button>
+    </div>
+    
+    <!-- PÁGINA 1: TÁTICAS DE ATAQUE -->
+    <div id="ataque" class="content-panel active">
+        <h2>⚔️ COMO OS MAIORES HACKERS DO MUNDO BURILAM DEFESAS</h2>
+        <p>Grupos APT (Ameaças Persistentes Avançadas) e hackers estatais utilizam metodologias cirúrgicas divididas em fases para violar perímetros corporativos de segurança máxima.</p>
+        
+        <div class="grid-cards">
+            <div class="info-card">
+                <div class="card-header" style="color: #ff007f;">1. Quebra da Cadeia de Suprimentos</div>
+                <div class="card-body">Invasores infectam o código ou servidores de empresas terceirizadas menores que possuem acesso legítimo à rede da empresa principal (Ex: caso SolarWinds). O malware entra de carona como uma atualização assinada e válida.</div>
+            </div>
+            <div class="info-card">
+                <div class="card-header" style="color: #ffaa00;">2. Bypass de MFA (Autenticação de Dois Fatores)</div>
+                <div class="card-body">Usando técnicas de "MFA Fatigue", atacantes disparam centenas de notificações de login no celular da vítima até que o alvo aprove por engano, ou utilizam Proxies reversos (como Evilginx) para roubar os cookies de sessão já autenticados de dentro do navegador.</div>
+            </div>
+            <div class="info-card">
+                <div class="card-header" style="color: #00ffff;">3. Explorações Pivot e Dia Zero</div>
+                <div class="card-body">Utilização de falhas de segurança desconhecidas (Zero-Days) ou encadeamento de bugs menores (Exploit Chains). Uma vulnerabilidade simples em um servidor web serve de pivô para ganhar acesso e escalar privilégios até o controle total do Active Directory.</div>
+            </div>
+            <div class="info-card">
+                <div class="card-header" style="color: #00ff66;">4. Evasão de EDR e Antivírus</div>
+                <div class="card-body">Ataques modernos utilizam técnicas de injeção direta na memória (Process Hollowing) ou trazem seus próprios drivers legítimos, porém vulneráveis, para desativar os agentes de segurança do kernel do sistema operacional (técnica BYOVD).</div>
+            </div>
         </div>
     </div>
     
-    <div class="footer-terminal">
-        GHOST-INOVX // END OF FILE <span class="blink" style="color: #bc13fe; font-weight: bold;">_</span>
+    <!-- PÁGINA 2: GUIA DE DEFESA -->
+    <div id="defesa" class="content-panel">
+        <h2>🛡️ GUIA PROFISSIONAL DE PROTEÇÃO CIBERNÉTICA</h2>
+        <div class="alert-box">
+            A regra básica da segurança da informação é: a defesa precisa cobrir 100% das vulnerabilidades, enquanto o atacante precisa encontrar apenas uma falha.
+        </div>
+        <p>Para mitigar ataques de engenharia social avançada e invasões estruturais, adote os pilares de segurança abaixo:</p>
+        
+        <ul class="step-list">
+            <li><strong>Arquitetura Zero Trust:</strong> Nunca confiar, sempre verificar. Segmentar redes internas de forma que o comprometimento de um computador não dê acesso automático ao restante da infraestrutura.</li>
+            <li><strong>Chaves de Segurança Físicas (FIDO2):</strong> Substituir o MFA baseado em SMS ou aplicativos por chaves de hardware (ex: YubiKey). Elas são imunes a ataques de phishing tradicionais e roubo de cookies.</li>
+            <li><strong>Gerenciamento de Privilégios (PAM):</strong> Nenhum usuário ou administrador deve utilizar privilégios elevados no dia a dia. Contas de "Domain Admin" devem ser blindadas e usadas apenas sob auditoria estrita.</li>
+            <li><strong>Análise Heurística e Caça a Ameaças (Threat Hunting):</strong> Logs de firewalls, servidores e endpoints devem ser centralizados em sistemas SIEM para detectar comportamentos anômalos, em vez de focar apenas em assinaturas antigas de vírus.</li>
+        </ul>
     </div>
-</div>
-
-</body>
-</html>
+    
+    <!-- PÁGINA 3: COMO SE TORNAR UM HACKER ÉTICO -->
+    <div id="carreira" class="content-panel">
+        <h2>💎 TRILHA REAL PARA SE TORNAR UM PENTESTER ELITE</h2>
