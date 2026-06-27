@@ -43,10 +43,11 @@
             <p>Através da engenharia de esquemas de intenção do sistema operacional Android (Intents), o aplicativo da Nexoguard consegue invocar de forma direta e transparente a execução do ecossistema de pacotes do Termux. Ao tocar no botão operacional abaixo, o sistema operacional intercepta a chamada estruturada de barramento que força a inicialização do terminal Unix em primeiro plano, contornando buffers e erros manuais de área de transferência.</p>
         </div>
 
-        <<!-- PROTOCOLO DIRETO UNIVERSAL - BURLA O BLOQUEIO DE COMPONENTES DO ANDROID -->
-<a href="termux://open" class="btn-termux-invoke">
+        <!-- INTENT MASTER COM FALLBACK DO NAVEGADOR - FORÇA A ABERTURA DO PACOTE RAIZ -->
+<a href="intent://#Intent;scheme=termux;package=com.termux;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10000000;end" class="btn-termux-invoke">
     ⚡ Abrir Terminal Termux Nativo
 </a>
+        
             
         
 
