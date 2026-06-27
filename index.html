@@ -6,41 +6,42 @@
     <title>CYBER SECURITY PORTAL</title>
     <style>
         :root {
-            --bg-deep: #030712;
-            --bg-card: rgba(17, 24, 39, 0.85);
+            --bg-deep: #02040a;
+            --bg-card: rgba(13, 17, 23, 0.9);
             --neon-cyan: #00ffcc;
-            --neon-blue: #3b82f6;
-            --neon-red: #ef4444;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --glow: 0 0 15px rgba(0, 255, 204, 0.2);
+            --neon-blue: #58a6ff;
+            --neon-red: #ff7b72;
+            --neon-green: #7ee787;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --glow: 0 0 20px rgba(0, 255, 204, 0.15);
         }
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'SF Pro Display', -apple-system, 'Segoe UI', Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
         }
         body {
             background-color: var(--bg-deep);
             background-image: 
-                radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(0, 255, 204, 0.08) 0px, transparent 50%);
+                radial-gradient(at 0% 0%, rgba(88, 166, 255, 0.08) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(0, 255, 204, 0.06) 0px, transparent 50%);
             color: var(--text-main);
             padding: 20px;
             min-height: 100vh;
         }
         .header-cyber {
             text-align: center;
-            padding: 30px 15px;
-            border-bottom: 1px solid rgba(0, 255, 204, 0.2);
-            margin-bottom: 30px;
+            padding: 40px 15px;
+            border-bottom: 1px solid rgba(0, 255, 204, 0.15);
+            margin-bottom: 35px;
         }
         .header-cyber h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             font-weight: 900;
-            letter-spacing: -1px;
-            background: linear-gradient(135deg, #ffffff 40%, var(--neon-cyan));
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #ffffff 30%, var(--neon-cyan));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -48,19 +49,19 @@
             font-family: monospace;
             color: var(--neon-cyan);
             font-size: 0.85rem;
-            margin-top: 6px;
-            letter-spacing: 2px;
+            margin-top: 8px;
+            letter-spacing: 3px;
         }
         
         .section-title {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             color: #ffffff;
             margin-bottom: 20px;
             border-left: 4px solid var(--neon-cyan);
-            padding-left: 10px;
-            margin-top: 25px;
+            padding-left: 12px;
+            margin-top: 35px;
         }
         .grid-layout {
             display: grid;
@@ -74,148 +75,156 @@
         }
         .card {
             background: var(--bg-card);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(48, 54, 65, 0.7);
             border-radius: 12px;
-            padding: 22px;
+            padding: 25px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .card:hover {
             border-color: var(--neon-cyan);
             box-shadow: var(--glow);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
         }
         .card-meta {
             font-family: monospace;
             font-size: 0.75rem;
             color: var(--neon-cyan);
             font-weight: bold;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
         }
         .card h3 {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             color: #ffffff;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         .card p {
             color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 18px;
         }
         .code-box {
-            background: #020617;
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 6px;
-            padding: 12px;
-            font-family: monospace;
-            font-size: 0.8rem;
-            color: #38bdf8;
+            background: #0d1117;
+            border: 1px solid #21262d;
+            border-radius: 8px;
+            padding: 15px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.85rem;
+            color: #79c0ff;
             overflow-x: auto;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             white-space: pre-wrap;
         }
         .tags-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
+            gap: 8px;
         }
         .tag {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: #d1d5db;
-            font-size: 0.7rem;
+            background: rgba(110, 118, 129, 0.1);
+            border: 1px solid #30363d;
+            color: #8b949e;
+            font-size: 0.75rem;
             font-family: monospace;
-            padding: 4px 8px;
-            border-radius: 4px;
+            padding: 4px 10px;
+            border-radius: 6px;
         }
 
-        /* MONITOR DA IA */
+        /* SUPER MONITOR DE PROCESSAMENTO DA IA */
         .ai-terminal {
-            background: rgba(10, 15, 30, 0.85);
+            background: rgba(10, 15, 26, 0.95);
             border: 1px solid var(--neon-blue);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 35px;
+            box-shadow: 0 0 25px rgba(88, 166, 255, 0.15);
         }
         .ai-status {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             font-family: monospace;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--neon-blue);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            font-weight: bold;
         }
         .pulse-dot {
-            width: 8px;
-            height: 8px;
+            width: 10px;
+            height: 10px;
             background-color: var(--neon-blue);
             border-radius: 50%;
             animation: pulse 1.5s infinite;
         }
         .ai-text {
             font-family: monospace;
-            font-size: 0.9rem;
-            color: #e5e7eb;
+            font-size: 0.95rem;
+            color: #e6edf3;
             border-left: 3px solid var(--neon-cyan);
-            padding-left: 12px;
-            margin: 10px 0;
+            padding-left: 15px;
+            margin: 15px 0;
+            line-height: 1.5;
         }
         .ai-metrics {
-            margin-top: 12px;
+            margin-top: 15px;
             display: flex;
-            gap: 15px;
+            flex-wrap: wrap;
+            gap: 20px;
             font-family: monospace;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: var(--neon-cyan);
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding-top: 10px;
+            border-top: 1px solid rgba(48, 54, 65, 0.5);
+            padding-top: 12px;
         }
 
-        /* BARRA DE PESQUISA */
-        .search-wrapper {
-            background: rgba(17, 24, 39, 0.9);
-            border: 1px solid rgba(0, 255, 204, 0.4);
+        /* CENTRAL DE PESQUISA RECONSTRUÍDA */
+        .search-container-v2 {
+            display: flex;
+            background: #0d1117;
+            border: 1px solid #30363d;
             border-radius: 8px;
             padding: 6px;
-            display: flex;
-            gap: 10px;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            gap: 8px;
         }
-        .search-box {
+        .search-container-v2:focus-within {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.1);
+        }
+        .search-input-v2 {
             flex: 1;
             background: transparent;
             border: none;
-            padding: 12px 15px;
-            color: var(--text-main);
+            padding: 12px;
+            color: #ffffff;
             font-size: 1rem;
             outline: none;
             font-family: monospace;
         }
-        .search-btn {
-            background: linear-gradient(135deg, var(--neon-blue), #1d4ed8);
-            color: white;
+        .search-button-v2 {
+            background: linear-gradient(135deg, #1f6feb, #104aa5);
+            color: #ffffff;
             border: none;
-            padding: 0 22px;
+            padding: 0 30px;
             border-radius: 6px;
             font-family: monospace;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.2s;
             text-transform: uppercase;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            transition: background 0.2s;
         }
-        .search-btn:hover {
-            box-shadow: 0 0 10px var(--neon-blue);
+        .search-button-v2:hover {
+            background: #238636; /* Altera para verde de sucesso ao passar o mouse */
         }
 
         @keyframes pulse {
             0% { transform: scale(0.9); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 10px var(--neon-blue); }
             100% { transform: scale(0.9); opacity: 0.5; }
         }
     </style>
@@ -224,55 +233,43 @@
 
     <header class="header-cyber">
         <h1>CYBER SECURITY</h1>
-        <p>// INFRAESTRUTURA CORPORATIVA DE INTELIGÊNCIA</p>
+        <p>// INFRAESTRUTURA CORPORATIVA DE INTELIGÊNCIA GLOBAL</p>
     </header>
 
     <main>
-        <!-- DIRETÓRIOS PRINCIPAIS DO SITE -->
-        <h2 class="section-title">Diretórios do Sistema</h2>
+        <!-- ABAS DIRETAS DO SITE (SEMPRE VISÍVEIS) -->
+        <h2 class="section-title">Diretórios Estruturais do Portal</h2>
         <div class="grid-layout">
             <a href="offensive.html" class="card-link">
                 <div class="card">
-                    <div class="card-meta">DB_MODULE_01 // HIGH_THREAT</div>
+                    <div class="card-meta">CENTRAL_DE_COMANDO // RED_TEAM_MODULE</div>
                     <h3>01. Red Team & Invasão Ofensiva →</h3>
-                    <p>Acesse o cronograma completo de testes de intrusão, táticas ofensivas baseadas em Cyber Kill Chain, exploits de kernel e técnicas avançadas de evasão de antivírus corporativos.</p>
-                    <div class="tags-container"><span class="tag">PENTEST</span><span class="tag">EXPLOITS</span></div>
+                    <p>Módulo avançado contendo o mapeamento completo da Cyber Kill Chain, exploits customizados para quebra de defesas perimetrais e vetores de ataque voltados à engenharia social e intrusão física.</p>
+                    <div class="tags-container"><span class="tag">PENTEST</span><span class="tag">EXPLOITATION</span><span class="tag">OFFENSIVE</span></div>
                 </div>
             </a>
             <a href="defensive.html" class="card-link">
                 <div class="card">
-                    <div class="card-meta">DB_MODULE_02 // COMPLIANCE</div>
+                    <div class="card-meta">CENTRAL_DE_COMANDO // BLUE_TEAM_MODULE</div>
                     <h3>02. Blue Team & Defesa Avançada →</h3>
-                    <p>Explore guias de Inteligência de Fontes Abertas (OSINT), análise profunda de binários maliciosos, engenharia reversa de malwares e infraestruturas de rede baseadas em Zero Trust.</p>
-                    <div class="tags-container"><span class="tag">OSINT</span><span class="tag">ZERO_TRUST</span></div>
+                    <p>Centrais de monitoramento e proteção proativa de perímetros de rede. Inclui manuais táticos de Inteligência de Fontes Abertas (OSINT), análise reversa de artefatos de malware e implementação de redes Zero Trust.</p>
+                    <div class="tags-container"><span class="tag">OSINT</span><span class="tag">DEFENSIVE</span><span class="tag">ZERO_TRUST</span></div>
                 </div>
             </a>
             <a href="soc_automation.html" class="card-link">
                 <div class="card">
-                    <div class="card-meta">DB_MODULE_03 // SOAR_ENGINE</div>
+                    <div class="card-meta">CENTRAL_DE_COMANDO // SOAR_AUTOMATION_MODULE</div>
                     <h3>03. SOC, Automation & SOAR →</h3>
-                    <p>Monitore playbooks operacionais de resposta rápida a incidentes cibernéticos graves, scripts automatizados em Python para triagem de logs e correlação de eventos em ambientes SIEM.</p>
-                    <div class="tags-container"><span class="tag">PYTHON</span><span class="tag">AUTOMATION</span></div>
+                    <p>Automação sistêmica para centros de operações de segurança. Playbooks estruturados em Python e automações focadas em reduzir o tempo de mitigação (MTTR) contra vazamentos ou infecções complexas.</p>
+                    <div class="tags-container"><span class="tag">PYTHON</span><span class="tag">AUTOMATION</span><span class="tag">SIEM_LOGS</span></div>
                 </div>
             </a>
         </div>
 
-        <!-- TERMINAL DA IA COM FUNÇÕES REAIS -->
+        <!-- CONSOLE ANALÍTICO DO PROGÊNITO INTERNO DA IA -->
         <section class="ai-terminal">
             <div class="ai-status">
                 <div class="pulse-dot"></div>
-                <span>NÚCLEO COGNITIVO IA OPERACIONAL ATIVO</span>
+                <span>NÚCLEO COGNITIVO INTERNO ATIVO</span>
             </div>
             <div class="ai-text" id="ai-response">
-                Super Banco de Dados ativo (Capacidade máxima de indexação liberada). Digite sua consulta de segurança abaixo.
-            </div>
-            <div class="ai-metrics">
-                <span id="ai-perf">STATUS: TOTALMENTE OPERACIONAL</span>
-                <span id="ai-severity">ANÁLISE DE SEGURANÇA: NOMINAL</span>
-            </div>
-        </section>
-
-        <!-- CENTRAL DE PESQUISA (TAG CORRIGIDA AQUI) -->
-        <h2 class="section-title">Central de Pesquisa de Vulnerabilidades</h2>
-        <div class="search-wrapper">
-            <input type="text" id="cyber-search" class="search-box" placeholder="Exemplos: wifi, deauth, wpa3, android, celular, sms, windows, linux, pc, proxy...">
