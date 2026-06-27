@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google" content="notranslate">
-    <title>DANIEL CYBER SECURITY // INFRA</title>
+    <title>DANIEL CYBER SECURITY</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html, body { 
@@ -34,82 +34,48 @@
         .system-header h1 { font-family: 'Consolas', monospace !important; font-size: 24px !important; letter-spacing: 2px; color: #ffffff !important; text-shadow: 0 0 10px #00ffff !important; }
         .system-header p { font-family: 'Consolas', monospace !important; font-size: 11px; color: #bc13fe; letter-spacing: 2px; font-weight: bold; margin-top: 4px; }
 
-        /* Imagem Estilizada - Substituída por um Canvas de Alta Tecnologia e CSS Avançado */
-        .hacker-avatar-box {
+        /* Banner com Imagem Hacker de Alta Resolução */
+        .hacker-banner-img {
             width: 100%;
-            height: 180px;
-            background: linear-gradient(45deg, #05020a, #1a0836);
+            height: auto;
+            max-height: 250px;
+            object-fit: cover;
             border: 1px solid #00ffff;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
             border-radius: 4px;
             margin-bottom: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Consolas', monospace;
-            overflow: hidden;
-            position: relative;
-        }
-        .matrix-glitch {
-            color: #00ff66;
-            font-size: 11px;
-            position: absolute;
-            top: 5px; left: 10px;
-            opacity: 0.3;
-            line-height: 1.2;
-        }
-        .avatar-guy {
-            font-size: 55px;
-            filter: drop-shadow(0 0 10px #00ffff);
-            margin-bottom: 5px;
-            animation: pulse-logo 2s ease-in-out infinite;
-        }
-        @keyframes pulse-logo { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-        .avatar-caption {
-            font-size: 14px;
-            font-weight: bold;
-            color: #ffffff;
-            letter-spacing: 3px;
-            text-shadow: 0 0 8px #bc13fe;
+            display: block;
         }
 
-        /* Layout em Grade para as Pastas Clicáveis */
-        .folder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px; }
+        /* Sistema de Abas Forçadas (Sem quebra de cache) */
+        .folder-grid { display: flex; flex-direction: column; gap: 15px; margin-top: 10px; }
         .folder-wrapper { text-decoration: none !important; }
         
-        .folder-card {
-            background: rgba(19, 9, 33, 0.6) !important;
-            border: 1px solid rgba(188, 19, 254, 0.4) !important;
-            border-radius: 6px; padding: 20px 10px; text-align: center;
-            cursor: pointer; transition: all 0.2s ease;
+        .menu-row-btn {
+            width: 100%; background: rgba(25, 10, 45, 0.7) !important;
+            border: 1px solid #bc13fe !important; color: #ffffff !important; padding: 18px;
+            font-family: 'Consolas', monospace !important; font-size: 13px !important; font-weight: bold;
+            text-align: left; cursor: pointer; transition: all 0.2s ease;
+            box-shadow: inset 0 0 10px rgba(188, 19, 254, 0.1);
+            border-radius: 4px;
         }
-        .folder-card:hover {
-            background: rgba(0, 255, 255, 0.1) !important;
-            border-color: #00ffff !important;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3) !important;
-            transform: translateY(-3px);
-        }
-        .folder-icon { font-size: 45px; margin-bottom: 10px; display: block; filter: drop-shadow(0 0 8px #bc13fe); }
-        .folder-card:hover .folder-icon { filter: drop-shadow(0 0 10px #00ffff); }
-        .folder-name { font-family: 'Consolas', monospace !important; font-size: 12px !important; font-weight: bold; color: #ffffff !important; text-transform: uppercase; letter-spacing: 1px; }
+        .menu-row-btn:hover { background: #00ffff !important; color: #030106 !important; border-color: #00ffff !important; box-shadow: 0 0 20px #00ffff !important; padding-left: 25px; }
 
-        /* Sistema Anti-Travamento Total */
         .sub-page { display: none; margin-top: 5px; }
-        #attack:target, #roadmap:target, #osint:target, #malware:target { display: block !important; }
         
-        /* Se nenhuma aba estiver ativa no link, força a exibição do menu principal */
-        #hub-menu { display: block; }
+        /* Mecânica Ativa de Visualização das Páginas */
+        #attack:target, #roadmap:target, #osint:target, #malware:target { display: block !important; }
         #attack:target ~ #hub-menu, #roadmap:target ~ #hub-menu, #osint:target ~ #hub-menu, #malware:target ~ #hub-menu { display: none !important; }
+        #hub-menu { display: block !important; }
 
-        /* Páginas de Conteúdo */
+        /* Estilos das Páginas de Informações */
         h2 { font-family: 'Consolas', monospace !important; font-size: 16px !important; color: #00ffff !important; text-shadow: 0 0 8px rgba(0,255,255,0.4); margin-bottom: 20px; border-left: 4px solid #00ffff; padding-left: 12px; text-transform: uppercase; }
         
         .timeline-container { padding-left: 15px; border-left: 2px dashed rgba(188, 19, 254, 0.4); }
         .step-block { margin-bottom: 25px; position: relative; }
         .step-block::before { content: "●"; position: absolute; left: -22px; top: -2px; color: #00ff66; font-size: 16px; text-shadow: 0 0 5px #00ff66; }
         .step-title { font-size: 15px !important; font-weight: bold !important; color: #ffffff !important; margin-bottom: 6px; font-family: 'Consolas', monospace !important; }
-        .step-text { color: #dcd1e8 !important; font-size: 13.5px !important; line-height: 1.6; background: rgba(255,255,255,0.03); padding: 12px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
+        .step-text { color: #e2d5f0 !important; font-size: 14px !important; line-height: 1.6; background: rgba(255,255,255,0.03); padding: 15px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
 
         .back-btn { display: inline-block; margin-top: 15px; color: #00ffff !important; text-decoration: none !important; border: 1px solid #00ffff !important; padding: 10px 18px; font-family: 'Consolas', monospace !important; font-size: 12px !important; font-weight: bold; border-radius: 4px; }
         .back-btn:hover { background: #00ffff !important; color: #030106 !important; box-shadow: 0 0 12px #00ffff !important; }
@@ -124,12 +90,8 @@
         <p>// OPERATIONAL FILE MANAGER</p>
     </div>
 
-    <!-- BANNER HACKER EMBUTIDO INTEGRAL (IMPECÁVEL E INFALÍVEL) -->
-    <div class="hacker-avatar-box">
-        <div class="matrix-glitch">10010110<br>01110100<br>SYSTEM OVERRIDE<br>ACCESS GRANTED</div>
-        <div class="avatar-guy">🎭</div>
-        <div class="avatar-caption">ANONYMOUS INTEL</div>
-    </div>
+    <!-- IMAGEM HACKER REAL QUE NÃO QUEBRA -->
+    <img src="https://github.com" alt="Cyber Grid Image" class="hacker-banner-img" style="background: #11052c; content: url('https://unsplash.com');">
 
     <!-- PÁGINA 1: CADEIA DE ATAQUE -->
     <div id="attack" class="sub-page">
@@ -137,18 +99,18 @@
         <div class="timeline-container">
             <div class="step-block">
                 <div class="step-title" style="color: #00ffff;">01. Reconhecimento Avançado</div>
-                <div class="step-text">Invasores mapeiam a infraestrutura externa do alvo usando ferramentas automatizadas de varredura. Coletam subdomínios, e-mails corporativos expostos e logs públicos para encontrar serviços desatualizados e vulneráveis.</div>
+                <div class="step-text">Invasores mapeiam toda a infraestrutura externa do alvo usando ferramentas automatizadas de varredura. Eles coletam subdomínios, e-mails corporativos expostos e logs públicos para encontrar portas abertas e serviços desatualizados.</div>
             </div>
             <div class="step-block">
                 <div class="step-title" style="color: #ffaa00;">02. Vetor de Entrada</div>
-                <div class="step-text">Payloads maliciosos são injetados em e-mails altamente direcionados (Spear-Phishing) para funcionários com grandes privilégios, ou exploram diretamente brechas ativas em servidores de borda expostos na internet.</div>
+                <div class="step-text">Os payloads maliciosos são ocultados dentro de arquivos legítimos e enviados por campanhas de Spear-Phishing altamente direcionadas para funcionários com privilégios de administrador, ou explorando brechas diretas em servidores expostos.</div>
             </div>
             <div class="step-block">
                 <div class="step-title" style="color: #ff007f;">03. Movimentação e Exfiltração</div>
-                <div class="step-text">Após controlar o primeiro computador, os atacantes capturam as credenciais da memória interna. Eles navegam de servidor em servidor de forma silenciosa até dominar o servidor central e roubar todos os dados confidenciais.</div>
+                <div class="step-text">Após controlar o primeiro computador, os atacantes capturam as credenciais da memória interna. Eles navegam de servidor em servidor de forma silenciosa até dominar o controlador de domínio central e roubar todos os dados confidenciais antes do ataque final.</div>
             </div>
         </div>
-        <a href="#" class="back-btn">&lt; MOVER DIRETÓRIO ACIMA</a>
+        <a href="#" class="back-btn">&lt; VOLTAR AO MENU</a>
     </div>
 
     <!-- PÁGINA 2: ROADMAP PENTESTER -->
@@ -157,14 +119,36 @@
         <div class="timeline-container" style="border-left-color: rgba(0, 255, 102, 0.4);">
             <div class="step-block">
                 <div class="step-title">Fase 01. Arquitetura e Fluxo de Redes</div>
-                <div class="step-text">Domínio profundo do modelo TCP/IP, requisições HTTP estruturais, cabeçalhos, manipulação de tráfego de pacotes brutos com analisadores como o Wireshark e gerenciamento de DNS.</div>
+                <div class="step-text">Domínio profundo do modelo TCP/IP, requisições HTTP estruturais, cabeçalhos de requisição, manipulação e análise de tráfego de pacotes brutos com analisadores como o Wireshark e gerenciamento de servidores DNS.</div>
             </div>
             <div class="step-block">
                 <div class="step-title">Fase 02. Kernels e Terminais de Comando</div>
-                <div class="step-text">Esqueça sistemas gráficos. Um hacker profissional controla processos, partições e permissões complexas diretamente pelas linhas de comando do Linux e das estruturas internas do Windows corporativo.</div>
+                <div class="step-text">Esqueça sistemas com interface gráfica. Um hacker ético profissional controla processos, partições e permissões complexas de arquivos diretamente pelas linhas de comando do Linux e das estruturas internas do Active Directory do Windows.</div>
             </div>
             <div class="step-block">
                 <div class="step-title">Fase 03. Prática Ofensiva Real</div>
-                <div class="step-text">Estudo dos frameworks internacionais de falhas (como o OWASP Top 10) combinado com treinamento em laboratórios práticos intensivos que simulam redes reais, como a plataforma Hack The Box.</div>
+                <div class="step-text">Estudo detalhado dos frameworks internacionais de falhas (como o OWASP Top 10) combinado com treinamento prático intenso explorando laboratórios que simulam redes corporativas reais, como a plataforma Hack The Box.</div>
             </div>
         </div>
+        <a href="#" class="back-btn">&lt; VOLTAR AO MENU</a>
+    </div>
+
+    <!-- MENU PRINCIPAL COM ABAS FORÇADAS -->
+    <div id="hub-menu" class="sub-page">
+        <div class="folder-grid">
+            <a href="#attack" class="folder-wrapper">
+                <button class="menu-row-btn">&gt; 01. DIRETÓRIO: CYBER KILL CHAIN</button>
+            </a>
+            <a href="#roadmap" class="folder-wrapper">
+                <button class="menu-row-btn">&gt; 02. DIRETÓRIO: ROADMAP ETHICAL HACKER</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="sys-footer">
+        DANIEL CYBER SECURITY // FILE SYSTEM ROOT _
+    </div>
+</div>
+
+</body>
+</html>
