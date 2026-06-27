@@ -8,7 +8,6 @@
         :root {
             --bg-main: #060913;
             --bg-card: #0b1220;
-            --bg-terminal: #02040a;
             --accent-blue: #00d2ff;
             --accent-magenta: #ff007f;
             --accent-green: #00ff66;
@@ -28,23 +27,24 @@
 
         .download-container { width: 100%; max-width: 340px; margin: 0 auto 20px auto; text-align: center; }
         .download-btn { display: flex; align-items: center; justify-content: center; gap: 10px; background: linear-gradient(135deg, #10b981, #059669); color: white; border: 1px solid rgba(16, 185, 129, 0.3); padding: 14px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2); transition: all 0.2s ease; }
-        .download-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4); }
 
-        /* PAINÉIS DAS FERRAMENTAS REAIS */
+        /* AJUSTE ESTRUTURAL DAS FERRAMENTAS - CORES EXPLÍCITAS ANTI-BUG */
         .tool-panel { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; width: 100%; max-width: 340px; margin: 0 auto 20px auto; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
         .tool-panel h2 { font-size: 0.95rem; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; border-left: 3px solid var(--accent-blue); padding-left: 8px; color: #ffffff; }
         
         .form-group { margin-bottom: 12px; }
-        .form-group label { display: block; font-size: 0.75rem; color: var(--text-desc); margin-bottom: 4px; font-weight: 600; text-transform: uppercase; }
-        .form-control { width: 100%; background: var(--bg-terminal); border: 1px solid var(--border-color); border-radius: 6px; padding: 10px; color: #ffffff; font-size: 0.85rem; outline: none; font-family: monospace; }
-        .form-control:focus { border-color: var(--accent-blue); }
+        .form-group label { display: block; font-size: 0.75rem; color: var(--text-desc); margin-bottom: 6px; font-weight: 600; text-transform: uppercase; }
         
-        .btn-tool { width: 100%; background: var(--brand-blue); color: white; border: none; padding: 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; cursor: pointer; transition: background 0.2s; font-family: monospace; }
-        .btn-tool:hover { background: #1d4ed8; }
+        /* INPUTS COM CORES VISÍVEIS FORÇADAS */
+        .form-control { width: 100%; background: #040710 !important; border: 1px solid rgba(255,255,255,0.15) !important; border-radius: 6px; padding: 12px; color: #ffffff !important; font-size: 0.9rem; outline: none; font-family: monospace; display: block; }
         
-        .tool-output { background: var(--bg-terminal); border: 1px dashed rgba(255,255,255,0.1); border-radius: 6px; padding: 10px; margin-top: 12px; font-family: monospace; font-size: 0.8rem; color: var(--accent-green); word-break: break-all; }
+        /* BOTÕES DE UTILIDADE VISÍVEIS E CLICÁVEIS */
+        .btn-tool { width: 100%; background: #2563eb !important; color: #ffffff !important; border: none; padding: 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; cursor: pointer; display: block; text-align: center; font-family: monospace; margin-top: 10px; box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2); }
+        .btn-tool:active { background: #1d4ed8 !important; }
+        
+        .tool-output { background: #02040a; border: 1px dashed rgba(0, 210, 255, 0.3); border-radius: 6px; padding: 12px; margin-top: 12px; font-family: monospace; font-size: 0.85rem; color: var(--accent-green); word-break: break-all; display: none; line-height: 1.4; }
 
-        /* ROADMAP */
+        /* ROADMAP ORIGINAL INTOCADO */
         .roadmap-container { position: relative; max-width: 600px; margin: 40px auto 0 auto; display: flex; flex-direction: column; gap: 24px; align-items: center; }
         .roadmap-container::before { content: ""; position: absolute; top: 0; bottom: 0; width: 2px; background: rgba(255,255,255,0.08); z-index: 1; }
 
@@ -99,7 +99,7 @@
         </a>
     </div>
 
-    <!-- FERRAMENTA 1: GERADOR CRIPTOGRÁFICO DE SENHAS -->
+    <!-- GERADOR DE SENHAS -->
     <section class="tool-panel">
         <h2>Gerador de Senhas de Alta Entropia</h2>
         <div class="form-group">
@@ -107,22 +107,22 @@
             <input type="number" id="pwd-length" class="form-control" value="16" min="8" max="64">
         </div>
         <button class="btn-tool" onclick="generateSecurePassword()">Gerar Chave Criptográfica</button>
-        <div id="pwd-output" class="tool-output" style="display: none;"></div>
+        <div id="pwd-output" class="tool-output"></div>
     </section>
 
-    <!-- FERRAMENTA 2: ANALISADOR DE FORÇA CONTRA FORÇA BRUTA -->
+    <!-- ANALISADOR DE RESILIÊNCIA -->
     <section class="tool-panel">
         <h2>Analisador de Resiliência a Força Bruta</h2>
         <div class="form-group">
             <label for="pwd-input">Testar Senha Base</label>
             <input type="text" id="pwd-input" class="form-control" placeholder="Digite uma senha para auditoria..." oninput="analyzePasswordStrength()">
         </div>
-        <div id="strength-output" class="tool-output" style="display: none; color: var(--text-main);"></div>
+        <div id="strength-output" class="tool-output" style="color: #ffffff;"></div>
     </section>
 
+    <!-- ROADMAP 8 BLOCOS PISCANTES -->
     <main>
         <div class="roadmap-container">
-            <!-- 01. FUNDAMENTOS -->
             <a href="offensive.html#fundamentos" class="course-link">
                 <div class="course-card pulse-blue">
                     <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-blue));">🔒</div>
@@ -131,7 +131,6 @@
                 </div>
             </a>
 
-            <!-- 02. LINUX E SHELL -->
             <a href="offensive.html#linux-shell" class="course-link">
                 <div class="course-card pulse-blue">
                     <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-blue));">🐧</div>
@@ -140,7 +139,7 @@
                 </div>
             </a>
 
-            <!-- 03. AUDITORIA WI-FI -->
             <a href="offensive.html#wifi" class="course-link">
                 <div class="course-card pulse-magenta">
                     <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-magenta));">📡</div>
+                    <h3>Auditoria de Redes e Ataques Wi-Fi</h3>
