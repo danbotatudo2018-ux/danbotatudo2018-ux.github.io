@@ -3,60 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYBER SECURITY - BLUE TEAM SHIELD</title>
+    <title>BLUE TEAM DEFENSE</title>
     <style>
-        :root {
-            --bg-deep: #02040a;
-            --bg-card: rgba(13, 17, 23, 0.9);
-            --neon-blue: #58a6ff;
-            --neon-cyan: #00ffcc;
-            --text-main: #c9d1d9;
-            --text-muted: #8b949e;
-        }
+        :root { --bg-corporate: #040711; --bg-surface: #0a1122; --bg-terminal: #02040a; --brand-blue: #1e40af; --accent-cyan: #06b6d4; --text-main: #f8fafc; --text-secondary: #94a3b8; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, sans-serif; }
-        body { background-color: var(--bg-deep); color: var(--text-main); padding: 20px; }
-        .header-cyber { text-align: center; padding: 30px 15px; border-bottom: 1px solid rgba(88, 166, 255, 0.2); margin-bottom: 30px; }
-        .header-cyber h1 { font-size: 2rem; color: #ffffff; background: linear-gradient(135deg, #ffffff, var(--neon-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .nav-back { margin-bottom: 20px; display: inline-block; color: var(--neon-cyan); text-decoration: none; font-family: monospace; font-size: 0.9rem; }
-        .section-title { font-size: 1.1rem; text-transform: uppercase; color: #ffffff; margin-bottom: 20px; border-left: 4px solid var(--neon-blue); padding-left: 10px; }
-        .grid-layout { display: grid; grid-template-columns: 1fr; gap: 20px; }
-        .card { background: var(--bg-card); border: 1px solid #30363d; border-radius: 12px; padding: 22px; }
-        .card-meta { font-family: monospace; font-size: 0.75rem; color: var(--neon-blue); font-weight: bold; margin-bottom: 8px; }
-        .card h3 { font-size: 1.2rem; color: #ffffff; margin-bottom: 10px; }
-        .card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 15px; }
-        .code-box { background: #0d1117; border: 1px solid #21262d; border-radius: 6px; padding: 12px; font-family: monospace; font-size: 0.8rem; color: #58a6ff; overflow-x: auto; white-space: pre-wrap; }
+        body { background-color: var(--bg-corporate); color: var(--text-main); padding: 15px; }
+        .nav-back { color: var(--accent-cyan); text-decoration: none; font-family: monospace; display: block; margin-bottom: 20px; font-weight: bold; }
+        .panel { background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 20px; margin-bottom: 15px; }
+        .title { border-left: 4px solid var(--brand-blue); padding-left: 10px; font-size: 1.2rem; text-transform: uppercase; margin-bottom: 15px; }
+        .code { background: var(--bg-terminal); padding: 12px; border-radius: 6px; font-family: monospace; color: #79c0ff; margin-top: 10px; overflow-x: auto; white-space: pre-wrap; }
     </style>
 </head>
 <body>
-
-    <!-- BOTÃO PARA RETORNAR À TELA ANTERIOR -->
-    <a href="index.html" class="nav-back">← RETORNAR AO DASHBOARD PRINCIPAL</a>
-
-    <header class="header-cyber">
-        <h1>MÓDULO 02 // BLUE TEAM OPERATIONS</h1>
-        <p style="font-family: monospace; color: var(--neon-blue); font-size: 0.8rem; margin-top: 5px;">MECANISMOS DE DEFESA PROATIVA E AUDITORIA CRIPTOGRÁFICA</p>
-    </header>
-
-    <main>
-        <h2 class="section-title">Diretrizes de Hardening e Análise</h2>
-        <div class="grid-layout">
-            
-            <div class="card">
-                <div class="card-meta">DEFENSE_TACTIC // OSINT_RECON</div>
-                <h3>Mapeamento de Superfície de Ataque Exposta</h3>
-                <p>Uso de frameworks automatizados de Inteligência de Fontes Abertas para identificar portas e subdomínios desprotegidos expostos na internet.</p>
-                <div class="code-box">nmap -sS -sV -O --script=vuln [IP_ALVO_CORPORATIVO]</div>
-            </div>
-
-            <div class="card">
-                <div class="card-meta">DEFENSE_TACTIC // ENDPOINT_HARDENING</div>
-                <h3>Auditoria de Integridade de Conexões Locais Linux</h3>
-                <p>Verificação sistemática de soquetes ativos para isolamento de backdoors ou comunicações anômalas com IPs externos não autorizados.</p>
-                <div class="code-box">ss -tulpn && netstat -antp | grep ESTABLISHED</div>
-            </div>
-
-        </div>
-    </main>
-
+    <a href="index.html" class="nav-back">← RETORNAR AO PANEL PRINCIPAL</a>
+    <div class="panel">
+        <h2 class="title">Módulo 02 // Blue Team Defense</h2>
+        <p style="color: var(--text-secondary); font-size: 0.9rem;">Hardening de servidores Linux, monitoramento de conexões ativas e arquitetura Zero Trust.</p>
+        <div class="code"># Auditoria ativa de conexões e portas abertas no Kernel&#10;ss -tulpn && netstat -antp</div>
+    </div>
 </body>
 </html>
