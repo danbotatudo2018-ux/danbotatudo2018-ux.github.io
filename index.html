@@ -7,9 +7,10 @@
     <style>
         :root {
             --bg-deep: #030712;
-            --bg-card: rgba(17, 24, 39, 0.7);
+            --bg-card: rgba(17, 24, 39, 0.85);
             --neon-cyan: #00ffcc;
             --neon-blue: #3b82f6;
+            --neon-red: #ff3b3b;
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
             --glow: 0 0 15px rgba(0, 255, 204, 0.3);
@@ -23,8 +24,8 @@
         body {
             background-color: var(--bg-deep);
             background-image: 
-                radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(0, 255, 204, 0.08) 0px, transparent 50%);
+                radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(0, 255, 204, 0.1) 0px, transparent 50%);
             color: var(--text-main);
             padding: 20px;
             min-height: 100vh;
@@ -51,9 +52,9 @@
             letter-spacing: 2px;
         }
         
-        /* CONTAINER DE INTELIGÊNCIA ARTIFICIAL */
+        /* MONITOR DE IA */
         .ai-terminal {
-            background: rgba(10, 15, 30, 0.85);
+            background: rgba(10, 15, 30, 0.9);
             border: 1px solid var(--neon-blue);
             border-radius: 8px;
             padding: 20px;
@@ -85,38 +86,46 @@
             margin: 10px 0;
         }
 
-        /* LUPA DE PESQUISA AVANÇADA */
-        .search-container {
-            position: relative;
+        /* BARRA DE PESQUISA AVANÇADA */
+        .search-wrapper {
+            background: rgba(17, 24, 39, 0.9);
+            border: 1px solid rgba(0, 255, 204, 0.4);
+            border-radius: 8px;
+            padding: 6px;
+            display: flex;
+            gap: 10px;
             margin-bottom: 35px;
         }
         .search-box {
-            width: 100%;
-            background: rgba(17, 24, 39, 0.9);
-            border: 1px solid rgba(0, 255, 204, 0.3);
-            border-radius: 8px;
-            padding: 15px 20px 15px 45px;
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 12px 15px;
             color: var(--text-main);
             font-size: 1rem;
             outline: none;
-            transition: all 0.3s ease;
             font-family: monospace;
         }
-        .search-box:focus {
-            border-color: var(--neon-cyan);
-            box-shadow: 0 0 12px rgba(0, 255, 204, 0.2);
+        .search-btn {
+            background: linear-gradient(135deg, var(--neon-blue), #1d4ed8);
+            color: white;
+            border: none;
+            padding: 0 22px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
         }
-        .search-icon {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--neon-cyan);
-            font-size: 1.2rem;
-            pointer-events: none;
+        .search-btn:hover {
+            box-shadow: 0 0 10px var(--neon-blue);
+            transform: scale(1.02);
         }
         
-        /* GRID CORPORATIVO */
+        /* SISTEMA DE CARDS DA ENGINE */
         .section-title {
             font-size: 1.1rem;
             text-transform: uppercase;
@@ -147,7 +156,6 @@
         .card:hover {
             border-color: var(--neon-cyan);
             box-shadow: var(--glow);
-            transform: translateY(-2px);
         }
         .card-meta {
             font-family: monospace;
@@ -167,6 +175,18 @@
             font-size: 0.9rem;
             line-height: 1.5;
             margin-bottom: 15px;
+        }
+        .code-box {
+            background: #020617;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 6px;
+            padding: 12px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: #38bdf8;
+            overflow-x: auto;
+            margin-bottom: 15px;
+            white-space: pre-wrap;
         }
         .tags-container {
             display: flex;
@@ -192,82 +212,58 @@
 </head>
 <body>
 
-    <!-- PAINEL CENTRAL DE ESTRUTURA -->
     <header class="header-cyber">
         <h1>CYBER SECURITY</h1>
         <p>// INFRAESTRUTURA CORPORATIVA DE INTELIGÊNCIA</p>
     </header>
 
     <main>
-        <!-- CONSOLE COMPONENTE DE INTELIGÊNCIA ARTIFICIAL -->
+        <!-- MONITOR DE IA -->
         <section class="ai-terminal">
             <div class="ai-status">
                 <div class="pulse-dot"></div>
                 <span>NÚCLEO COGNITIVO IA OPERACIONAL ATIVO</span>
             </div>
             <div class="ai-text" id="ai-response">
-                Analisando telemetria de rede global... 0 ameaças ativas detectadas nas últimas 24h. Pronto para orquestração de playbooks táticos.
+                Engine de Busca Avançada online. Prontidão total para indexar vulnerabilidades globais.
             </div>
         </section>
 
-        <!-- CAIXA DE BUSCA COM LUPA VETORIAL -->
-        <div class="search-container">
-            <span class="search-icon">🔍</span>
-            <input type="text" id="cyber-search" class="search-box" placeholder="Pesquise diretórios, exploits, OSINT, bypass ou ferramentas..." onkeyup="executeSearch()">
+        <!-- NOVO FLUXO COM BOTÃO DE PESQUISA ATIVO -->
+        <div class="search-wrapper">
+            <input type="text" id="cyber-search" class="search-box" placeholder="Digite termos como: wifi, wpa3, deauth, celular, android, malware, exploit, windows, kali...">
+            <button class="search-btn" onclick="executeAdvancedSearch()">Executar Busca</button>
         </div>
 
-        <!-- BANCOS DE DADOS DO ECOSSISTEMA -->
-        <h2 class="section-title" id="grid-title">Diretórios de Inteligência</h2>
+        <!-- RESULTADOS DO SUPER BANCO DE DADOS -->
+        <h2 class="section-title" id="grid-title">Diretórios Estratégicos</h2>
         <div class="grid-layout" id="modules-grid">
-            
-            <!-- CARD 01: RED TEAM -->
-            <a href="offensive.html" class="card-link target-module">
-                <div class="card">
-                    <div class="card-meta">DB_MODULE_01 // HIGH_THREAT</div>
-                    <h3>Red Team & Invasão Ofensiva</h3>
-                    <p>Cronograma real de táticas ofensivas avançadas baseadas em Cyber Kill Chain. Roteiros de auditoria estruturados, desenvolvimento de exploits personalizados e desativação de agentes EDR corporativos.</p>
-                    <div class="tags-container">
-                        <span class="tag">PENTEST_ELITE</span>
-                        <span class="tag">KERNEL_EXPLOITATION</span>
-                        <span class="tag">AV_BYPASS</span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- CARD 02: BLUE TEAM -->
-            <a href="defensive.html" class="card-link target-module">
-                <div class="card">
-                    <div class="card-meta">DB_MODULE_02 // COMPLIANCE</div>
-                    <h3>Blue Team & Defesa Avançada</h3>
-                    <p>Mecanismos de mitigação em tempo real. Frameworks estruturados de Inteligência de Fontes Abertas (OSINT), análise profunda de binários maliciosos e implementação de perímetros criptográficos Zero Trust.</p>
-                    <div class="tags-container">
-                        <span class="tag">OSINT_OPSEC</span>
-                        <span class="tag">MALWARE_REVERSING</span>
-                        <span class="tag">ZERO_TRUST_ARCH</span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- CARD 03: SOC & AUTOMATION -->
-            <a href="soc_automation.html" class="card-link target-module">
-                <div class="card">
-                    <div class="card-meta">DB_MODULE_03 // SOAR_ENGINE</div>
-                    <h3>SOC, Automation & SOAR</h3>
-                    <p>Módulo automatizado de resposta e contenção. Scripts inteligentes em Python para extração de logs do sistema e ferramentas integradas para reduzir o tempo de mitigação de incidentes críticos.</p>
-                    <div class="tags-container">
-                        <span class="tag">PYTHON_SOC</span>
-                        <span class="tag">INCIDENT_RESPONSE</span>
-                        <span class="tag">SOAR_METRICS</span>
-                    </div>
-                </div>
-            </a>
-
+            <!-- Os resultados serão injetados e controlados dinamicamente aqui pela Data Engine -->
         </div>
     </main>
 
-    <!-- MOTOR DE LOGS E ENGINE DE PESQUISA AVANÇADA -->
+    <!-- BANCO DE DADOS INTEGRADO + MOTOR JAVASCRIPT -->
     <script>
-        // LOGS DA IA AUTOMÁTICA
-        const logs = [
-            "Analisando telemetria de rede global... 0 ameaças ativas detectadas.",
-            "IA: Correlacionando logs de servidores corporativos com a matriz MITRE ATT&CK.",
+        // MASSIVE CYBER SECURITY KNOWLEDGE DATABASE
+        const cyberDatabase = [
+            {
+                id: "wifi_01",
+                meta: "WIFI // WIRELESS_ATTACK",
+                title: "Ataque Deauthentication (Deauth) & Força Bruta WPA2/WPA3",
+                desc: "Metodologia para derrubar dispositivos de redes sem fio de forma remota sem estar conectado a elas, capturando o handshake de autenticação para quebra criptográfica offline via dicionários de senhas robustos.",
+                code: "sudo airmon-ng start wlan0\nsudo airodump-ng wlan0mon\nsudo aireplay-ng --deauth 100 -a [BSSID_ROUTER] -c [MAC_ALVO] wlan0mon\nsudo hashcat -m 22000 handshake.hc22000 wordlist.txt",
+                tags: ["WIFI", "KALI_LINUX", "AIRCRACK", "DEAUTH"]
+            },
+            {
+                id: "wifi_02",
+                meta: "WIFI // ROGUE_AP",
+                title: "Ataque de Gêmeo Maligno (Evil Twin AP)",
+                desc: "Criação de um ponto de acesso falso idêntico ao roteador legítimo do alvo utilizando ferramentas como Hostapd e Dnsmasq. Força o dispositivo a se conectar no sinal hacker para capturar tráfego HTTP e senhas em portais cativos clonados.",
+                code: "airgeddon / wifiphisher --evil-twin\n# Configuração manual de interface:\nifconfig wlan0 192.168.1.1 netmask 255.255.255.0\nroute add -net 192.168.1.0 netmask 255.255.255.0 gw 192.168.1.1",
+                tags: ["WIFI", "EVIL_TWIN", "PHISHING", "MITM"]
+            },
+            {
+                id: "cell_01",
+                meta: "MOBILE // ANDROID_EXPLOIT",
+                title: "Engenharia Reversa e Criação de Payloads Android (APK Backdoor)",
+                desc: "Injeção de agentes maliciosos de controle remoto (Meterpreter) dentro de arquivos APK legítimos de jogos ou utilitários para ignorar detecções básicas do Google Play Protect e obter acesso total ao armazenamento, câmera e SMS.",
