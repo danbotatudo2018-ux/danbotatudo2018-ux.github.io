@@ -3,23 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOC & AUTOMATION ENGINE</title>
+    <title>CYBER SECURITY - ADVANCED AUTOMATION & ENGINE</title>
     <style>
-        :root { --bg-corporate: #040711; --bg-surface: #0a1122; --bg-terminal: #02040a; --accent-green: #10b981; --accent-cyan: #06b6d4; --text-main: #f8fafc; --text-secondary: #94a3b8; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, sans-serif; }
-        body { background-color: var(--bg-corporate); color: var(--text-main); padding: 15px; }
-        .nav-back { color: var(--accent-cyan); text-decoration: none; font-family: monospace; display: block; margin-bottom: 20px; font-weight: bold; }
-        .panel { background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 20px; margin-bottom: 15px; }
-        .title { border-left: 4px solid var(--accent-green); padding-left: 10px; font-size: 1.2rem; text-transform: uppercase; margin-bottom: 15px; }
-        .code { background: var(--bg-terminal); padding: 12px; border-radius: 6px; font-family: monospace; color: #38bdf8; margin-top: 10px; overflow-x: auto; white-space: pre-wrap; }
+        :root {
+            --bg-main: #060913;
+            --bg-card: #0b1220;
+            --accent-magenta: #ff007f;
+            --accent-orange: #ff9900;
+            --accent-blue: #00d2ff;
+            --text-title: #ffffff;
+            --text-desc: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.05);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: var(--bg-main); color: #ffffff; padding: 15px; line-height: 1.7; }
+        .nav-back { color: var(--accent-blue); text-decoration: none; font-family: monospace; display: inline-block; margin-bottom: 20px; font-weight: bold; font-size: 0.85rem; }
+        .section-title { font-size: 1.2rem; font-weight: 700; text-transform: uppercase; margin-bottom: 25px; color: #ffffff; border-left: 4px solid var(--accent-magenta); padding-left: 12px; letter-spacing: 0.5px; }
+        
+        .knowledge-section { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .knowledge-section h3 { font-size: 1.3rem; color: #ffffff; margin-bottom: 15px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 8px; font-weight: 700; }
+        
+        .topic-block { margin-bottom: 25px; }
+        .topic-title { font-size: 1rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 10px; text-transform: uppercase; font-family: monospace; letter-spacing: 0.5px; }
+        .topic-title-orange { font-size: 1rem; font-weight: 700; color: var(--accent-orange); margin-bottom: 10px; text-transform: uppercase; font-family: monospace; letter-spacing: 0.5px; }
+        .knowledge-section p { color: var(--text-desc); font-size: 0.95rem; margin-bottom: 15px; text-align: justify; }
+        
+        .bullet-list { margin-left: 20px; margin-bottom: 15px; }
+        .bullet-list li { color: var(--text-desc); font-size: 0.95rem; margin-bottom: 10px; list-style-type: square; line-height: 1.6; }
     </style>
 </head>
 <body>
-    <a href="index.html" class="nav-back">← RETORNAR AO PANEL PRINCIPAL</a>
-    <div class="panel">
-        <h2 class="title">Módulo 03 // SOC & Automation</h2>
-        <p style="color: var(--text-secondary); font-size: 0.9rem;">Automatização de análise de logs via Python e orquestração de resposta a incidentes.</p>
-        <div class="code"># Script em Python para detectar tentativas de SQL Injection em logs HTTP&#10;with open('/var/log/nginx/access.log') as f:&#10;    if 'union select' in f.read().lower(): print('[ALERTA]')</div>
-    </div>
+
+    <a href="index.html" class="nav-back">← RETORNAR À ÁRVORE DE CURSOS</a>
+    <h2 class="section-title">Módulo Avançado // Orquestração e Inteligência Cognitiva</h2>
+
+    <!-- DOCKER PARA PENTESTERS -->
+    <section class="knowledge-section">
+        <h3>Docker para Pentesters e Segurança de Containers</h3>
+        
+        <div class="topic-block">
+            <div class="topic-title">Isolamento de Infraestrutura e Virtualização em Nível de Sistema Operacional</div>
+            <p>O uso de Docker e tecnologias de containerização transformou radicalmente a eficiência de laboratórios de testes de intrusão e o desdobramento de ferramentas ofensivas. Diferente da virtualização tradicional baseada em hipervisores pesados que emulam um hardware completo com sistemas operacionais inteiros, os containers Docker compartilham o mesmo Kernel do sistema hospedeiro (Host). Isso permite inicializar ambientes isolados e complexos em milissegundos, consumindo uma fração mínima de memória RAM e processamento.</p>
+            <p>Para um auditor de segurança, o Docker fornece a capacidade de empacotar arsenais de exploits com versões antigas e exatas de dependências de bibliotecas de software sem corromper ou bagunçar o sistema operacional principal do analista. Cada container atua como uma célula estéril e descartável, ideal para simulações repetíveis.</p>
+        </div>
+
+        <div class="topic-block">
+            <div class="topic-title">Riscos de Arquitetura e Vetores de Container Breakout</div>
+            <p>Compreender o Docker sob a ótica ofensiva também exige estudar suas falhas estruturais de isolamento. O principal risco reside no compartilhamento direto de namespaces e cgroups com o kernel principal. Se um container for inicializado com privilégios administrativos inadequados (Modo Privilegiado) ou se possuir mapeamentos mal configurados de sockets do Docker daemon (`/var/run/docker.sock`), agentes de ameaça conseguem executar a técnica conhecida como *Container Breakout*.</p>
+            <p>Esse vetor permite que um invasor que tenha comprometido um aplicativo dentro do container consiga escapar do isolamento lógico, injetando rotinas diretamente nos processos do sistema hospedeiro, assumindo o controle total sobre o servidor físico que hospeda toda a infraestrutura da empresa almejada.</p>
+        </div>
+    </section>
+
+    <!-- INTELIGÊNCIA ARTIFICIAL PARA PENTEST WEB -->
+    <section class="knowledge-section">
+        <h3>Inteligência Artificial e Heurística Avançada para Pentest Web</h3>
+        
+        <div class="topic-block">
+            <div class="topic-title-orange">Modelos Cognitivos no Mapeamento de Aplicações Web de Grande Escala</div>
+            <p>Auditorias modernas em portais web corporativos de escala global exigem o processamento de volumes massivos de requisições HTTP, impossibilitando análises exclusivamente humanas ou baseadas em assinaturas de regex comuns. A integração de modelos de Inteligência Artificial e Heurística Avançada permite automatizar a varredura lógica de estruturas complexas de roteamento, identificando padrões sutis que apontam para falhas graves como injeções SQL cegas (Blind SQLi) e quebras de controle de acesso.</p>
+            <p>Algoritmos de aprendizado de máquina analisam o comportamento e as variações sutis no tempo de resposta e no tamanho dos cabeçalhos retornados pelo servidor web. A IA cria um mapa semântico da aplicação, prevendo quais parâmetros e inputs possuem a maior probabilidade estatística de conter falhas latentes de lógica de negócios.</p>
+        </div>
+
+        <div class="topic-block">
+            <div class="topic-title-orange">Evasão Baseada em IA de Firewalls de Aplicação (WAF Bypass)</div>
+            <p>Sistemas avançados de defesa (Web Application Firewalls) bloqueiam pacotes baseando-se em listas conhecidas de payloads de exploits. Os atacantes empregam redes generativas adversariais (GANs) locais para automatizar o processo de ofuscação de payloads de ataque. A IA ofensiva analisa as regras do firewall protetor e gera mutações contínuas nas strings do código (combinando codificações hexadecimais, quebras de sintaxe e truncamentos de strings estruturados) que continuam válidas para o interpretador da aplicação web, mas tornam-se invisíveis aos filtros de assinatura do WAF.</p>
+        </div>
+    </section>
+
 </body>
 </html>
