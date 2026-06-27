@@ -3,44 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYBER ACADEMY - OFFENSIVE MODULE</title>
+    <title>CYBER SECURITY - OFFENSIVE INTELLIGENCE</title>
     <style>
         :root {
             --bg-main: #060913;
             --bg-card: #0b1220;
-            --bg-terminal: #020408;
             --accent-magenta: #ff007f;
             --accent-blue: #00d2ff;
             --text-title: #ffffff;
             --text-desc: #94a3b8;
             --border-color: rgba(255, 255, 255, 0.05);
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, sans-serif; }
-        body { background-color: var(--bg-main); color: #ffffff; padding: 15px; line-height: 1.5; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: var(--bg-main); color: #ffffff; padding: 15px; line-height: 1.7; }
         .nav-back { color: var(--accent-blue); text-decoration: none; font-family: monospace; display: inline-block; margin-bottom: 20px; font-weight: bold; font-size: 0.85rem; }
-        .section-title { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; color: #ffffff; border-left: 4px solid var(--accent-magenta); padding-left: 12px; }
-        .lesson-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 22px; margin-bottom: 20px; }
-        .lesson-card h3 { font-size: 1.1rem; color: #ffffff; margin-bottom: 8px; }
-        .lesson-card p { color: var(--text-desc); font-size: 0.85rem; margin-bottom: 12px; }
-        .terminal-block { background: var(--bg-terminal); border: 1px solid rgba(255,255,255,0.02); border-radius: 6px; padding: 12px; font-family: 'Courier New', monospace; font-size: 0.8rem; color: #ff7b72; border-left: 3px solid var(--accent-magenta); overflow-x: auto; white-space: pre-wrap; word-break: break-all; }
+        .section-title { font-size: 1.2rem; font-weight: 700; text-transform: uppercase; margin-bottom: 25px; color: #ffffff; border-left: 4px solid var(--accent-magenta); padding-left: 12px; letter-spacing: 0.5px; }
+        
+        .knowledge-section { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .knowledge-section h3 { font-size: 1.3rem; color: #ffffff; margin-bottom: 15px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 8px; font-weight: 700; }
+        
+        .topic-block { margin-bottom: 25px; }
+        .topic-title { font-size: 1rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 10px; text-transform: uppercase; font-family: monospace; letter-spacing: 0.5px; }
+        .knowledge-section p { color: var(--text-desc); font-size: 0.95rem; margin-bottom: 15px; text-align: justify; }
+        
+        .bullet-list { margin-left: 20px; margin-bottom: 15px; }
+        .bullet-list li { color: var(--text-desc); font-size: 0.95rem; margin-bottom: 10px; list-style-type: square; line-height: 1.6; }
+        .bullet-list strong { color: #ffffff; font-weight: 600; }
     </style>
 </head>
 <body>
 
     <a href="index.html" class="nav-back">← RETORNAR À ÁRVORE DE CURSOS</a>
-    <h2 class="section-title">Aulas Técnicas // Trilha Ofensiva</h2>
+    <h2 class="section-title">Repositório de Conhecimento // Trilha Ofensiva Avançada</h2>
 
-    <div class="lesson-card">
-        <h3>Aula 1: Auditoria Wireless e Captura de Handshake</h3>
-        <p>Como grupos hacker reais operam placas em modo monitor e disparam frames Deauth para quebrar criptografias de senhas.</p>
-        <div class="terminal-block">sudo airmon-ng start wlan0&#10;sudo airodump-ng --bssid [MAC_ROUTER] -c [CH] -w log wlan0mon&#10;sudo mdk4 wlan0mon d -b alvos.txt</div>
-    </div>
+    <!-- SEÇÃO 01 -->
+    <section class="knowledge-section" id="fundamentos">
+        <h3>Fundamentos de Segurança e Mecanismos Pentest</h3>
+        
+        <div class="topic-block">
+            <div class="topic-title">Conceitos Avançados de Auditoria Intrusa</div>
+            <p>O Teste de Intrusão profissional (Pentest) afasta-se completamente de visões amadoras de vandalismo digital. Trata-se de uma disciplina científica e metodológica de segurança da informação baseada em simulações controladas de adversários reais. O auditor de segurança (Pentester) atua sob contratos estritos de confidencialidade e escopo para mapear vulnerabilidades lógicas, erros de projeto em arquiteturas de redes e falhas de patch em sistemas corporativos antes que grupos cibercriminosos as descubram.</p>
+            <p>O valor de um Pentest não reside na invasão em si, mas sim no relatório pós-exploração que detalha de forma quantitativa o impacto financeiro, operacional e de reputação que a brecha traria para a infraestrutura de TI do cliente. Através dessa análise, a gerência executiva consegue direcionar orçamentos de proteção baseando-se em riscos reais auditados em campo.</p>
+        </div>
 
-    <div class="lesson-card">
-        <h3>Aula 2: Engenharia de Terminal no Termux Linux</h3>
-        <p>Configuração de infraestruturas estáveis de rede móvel e geração de pares de chaves criptográficas RSA seguras.</p>
-        <div class="terminal-block">pkg update && pkg upgrade -y&#10;pkg install openssh python git nmap -y&#10;ssh-keygen -t rsa -b 4096</div>
-    </div>
+        <div class="topic-block">
+            <div class="topic-title">O Framework de Mapeamento Técnico de Riscos</div>
+            <p>Para garantir que nenhum ativo de rede seja negligenciado, auditorias de segurança de alta patente seguem metodologias internacionais padronizadas (como OWASP, OSSTMM e PTES). Esse fluxo operacional divide o teste de intrusão em fases interdependentes que constroem a inteligência do ataque:</p>
+            <ul class="bullet-list">
+                <li><strong>Reconhecimento Ativo e Passivo (Recon):</strong> Coleta minuciosa de inteligência sobre o alvo. O auditor varre bancos de dados públicos, registros de DNS, metadados de arquivos expostos e ferramentas de OSINT para desenhar o perímetro externo da empresa, descobrindo subdomínios órfãos e IPs ativos sem proteção adequada.</li>
+                <li><strong>Análise e Varredura de Superfície:</strong> Utilizando inventários automatizados, o analista mapeia todas as portas de comunicação TCP/UDP abertas e os serviços em execução nos servidores. Cada versão de software identificada é cruzada com bancos de dados globais de CVEs (Common Vulnerabilities and Exposures) para verificar falhas latentes.</li>
+                <li><strong>Exploração e Quebra de Perímetro:</strong> O momento em que a vulnerabilidade teórica é validada na prática. O auditor desenvolve ou adapta códigos de exploits para demonstrar a viabilidade de execução remota de código (RCE), escalonamento de privilégios ou vazamento de tabelas de dados.</li>
+            </ul>
+        </div>
+    </section>
 
-</body>
-</html>
+    <!-- SEÇÃO 02 -->
+    <section class="knowledge-section" id="linux-shell">
+        <h3>Ambientes de Terminal Linux e Ecossistema Móvel</h3>
+        
+        <div class="topic-block">
+            <div class="topic-title">Engenharia de Linha de Comando e Sistemas Unix</div>
+            <p>Operações ofensivas avançadas dispensam o uso de interfaces gráficas. O Shell (linha de comando) é o instrumento mestre de controle em auditorias de sistemas de TI. Compreender a fundo a filosofia Unix — onde tudo é tratado como um arquivo —, o funcionamento de fluxos internos de entrada e saída (stdin, stdout, stderr), permissões de arquivos estruturadas e a manipulação dinâmica de buffers e strings é o que separa um analista sênior de um operador comum.</p>
+            <p>Durante uma pós-exploração bem-sucedida, o controle obtido de um servidor frequentemente se resume a um prompt de comando cru. Saber navegar por diretórios restritos do sistema, analisar variáveis de ambiente e injetar comandos diretamente na memória RAM viva de forma manual é essencial para manter a persistência sem disparar alertas em sistemas de monitoramento.</p>
+        </div>
+
+        <div class="topic-block">
+            <div class="topic-title">O Papel Técnico do Termux no Ambiente Android</div>
+            <p>O Termux opera como um ecossistema terminal Linux emulado diretamente dentro do espaço de usuário (User Space) isolado do sistema operacional Android. Ele fornece acesso completo a ferramentas nativas de auditoria sem a necessidade de Root do dispositivo, permitindo a instalação de pacotes como Python, Git, OpenSSH e ferramentas de varredura de rede direta.</p>
+            <p>No entanto, a engenharia por trás do Termux exige o entendimento das restrições de barramento do Android 10+. APIs de segurança modernas barram o acesso indiscriminado à área de transferência do celular (Clipboard), o que costuma causar bugs em scripts automatizados e truncar strings longas ou links contendo barras (/) e sufixos de domínio. Para contornar essas limitações de memória e buffers compartilhados, engenheiros evitam comandos diretos de cópia e forçam a gravação de chaves públicas criptográficas (como chaves RSA para SSH) por meio de redirecionamento de arquivos locais (`cat << 'EOF'`), blindando o cabeçalho contra corrupção.</p>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 03 -->
+    <section class="knowledge-section" id="wifi">
+        <h3>Metodologias de Auditoria em Redes Sem Fio (Wi-Fi)</h3>
+        
+        <div class="topic-block">
+            <div class="topic-title">Modo de Operação Hacker das Maiores Organizações do Mundo</div>
+            <p>Grupos estatais e sindicatos cibernéticos mundiais de alta periculosidade, como o <strong>APT28 (Fancy Bear)</strong>, comprometem perímetros de redes de computadores explorando falhas estruturais na especificação do protocolo IEEE 802.11. Em redes sem fio comuns, os quadros de gerenciamento e controle de sinal (Management Frames) trafegam em texto claro pelo ar, sem nenhum tipo de criptografia ou assinatura digital, independentemente do tamanho da senha da Wi-Fi.</p>
+            <p>Os atacantes posicionam adaptadores Wi-Fi especiais configurados em Modo Monitor (RFMON), permitindo a escuta passiva de todo o tráfego aéreo de radiofrequência sem precisar estar autenticado no roteador. Utilizando ferramentas avançadas como o `mdk4` ou scripts customizados em Python, os hackers disparam em massa pacotes falsificados de desautenticação (Deauth) contendo o endereço MAC clonado do roteador. Isso força a queda instantânea da conexão de celulares e computadores legítimos que operam naquela frequência.</p>
+        </div>
+
+        <div class="topic-block">
+            <div class="topic-title">O Mecanismo de Captura e Quebra de Handshakes Criptográficos</div>
+            <p>No exato milissegundo em que os computadores ou smartphones alvos tentam reestabelecer o sinal Wi-Fi caídos através da reconexão automática, a placa de rede em modo monitor intercepta a troca de chaves criptográficas de autenticação, conhecida como o Handshake de quatro vias (4-Way Handshake). Esse pacote de dados gerado no ar abriga as funções criptográficas e hashes derivados da senha da rede corporativa.</p>
+            <p>Com o handshake isolado em um arquivo local, os atacantes removem o hardware de campo e executam ataques de força bruta offline em servidores dedicados baseados em clusters de GPUs de alta performance. Eles processam dicionários gigantescos de strings (Wordlists) contendo bilhões de senhas vazadas por segundo contra o hash capturado. Como o ataque ocorre em ambiente local isolado, o roteador da empresa nunca recebe as tentativas de login erradas, impossibilitando bloqueios automatizados de segurança e resultando na decifração da senha real se ela não seguir padrões complexos.</p>
