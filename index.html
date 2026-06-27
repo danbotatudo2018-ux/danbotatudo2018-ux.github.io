@@ -10,6 +10,7 @@
             --bg-card: rgba(17, 24, 39, 0.85);
             --neon-cyan: #00ffcc;
             --neon-blue: #3b82f6;
+            --neon-red: #ef4444;
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
             --glow: 0 0 15px rgba(0, 255, 204, 0.2);
@@ -131,7 +132,7 @@
             border-radius: 4px;
         }
 
-        /* MONITOR DE IA */
+        /* NÚCLEO OPERACIONAL RE-ESTRUTURADO DA IA */
         .ai-terminal {
             background: rgba(10, 15, 30, 0.85);
             border: 1px solid var(--neon-blue);
@@ -163,6 +164,16 @@
             border-left: 3px solid var(--neon-cyan);
             padding-left: 12px;
             margin: 10px 0;
+        }
+        .ai-metrics {
+            margin-top: 12px;
+            display: flex;
+            gap: 15px;
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: var(--neon-cyan);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 10px;
         }
 
         /* BARRA DE PESQUISA */
@@ -217,10 +228,9 @@
     </header>
 
     <main>
-        <!-- SEÇÃO 1: DIRETÓRIOS PRINCIPAIS DO SITE (SEMPRE VISÍVEIS) -->
+        <!-- DIRETÓRIOS DO SITE (SEMPRE VISÍVEIS) -->
         <h2 class="section-title">Diretórios do Sistema</h2>
         <div class="grid-layout">
-            
             <a href="offensive.html" class="card-link">
                 <div class="card">
                     <div class="card-meta">DB_MODULE_01 // HIGH_THREAT</div>
@@ -229,7 +239,6 @@
                     <div class="tags-container"><span class="tag">PENTEST</span><span class="tag">EXPLOITS</span></div>
                 </div>
             </a>
-
             <a href="defensive.html" class="card-link">
                 <div class="card">
                     <div class="card-meta">DB_MODULE_02 // COMPLIANCE</div>
@@ -238,7 +247,6 @@
                     <div class="tags-container"><span class="tag">OSINT</span><span class="tag">ZERO_TRUST</span></div>
                 </div>
             </a>
-
             <a href="soc_automation.html" class="card-link">
                 <div class="card">
                     <div class="card-meta">DB_MODULE_03 // SOAR_ENGINE</div>
@@ -247,36 +255,25 @@
                     <div class="tags-container"><span class="tag">PYTHON</span><span class="tag">AUTOMATION</span></div>
                 </div>
             </a>
-
         </div>
 
-        <!-- SEÇÃO 2: MONITOR DE INTELIGÊNCIA ARTIFICIAL -->
+        <!-- TERMINAL DA IA COM FUNÇÕES REAIS -->
         <section class="ai-terminal">
             <div class="ai-status">
                 <div class="pulse-dot"></div>
                 <span>NÚCLEO COGNITIVO IA OPERACIONAL ATIVO</span>
             </div>
             <div class="ai-text" id="ai-response">
-                Engine de Inteligência online. Prontidão total para indexar e processar requisições técnicas de segurança.
+                Motor de Inteligência e Normalizador de Linguagem Natural Ativo. Insira sua busca técnica abaixo.
+            </div>
+            <div class="ai-metrics">
+                <span id="ai-perf">STATUS: PRONTA</span>
+                <span id="ai-severity">SEVERIDADE DA ANÁLISE: NOMINAL</span>
             </div>
         </section>
 
-        <!-- SEÇÃO 3: MOTOR DE BUSCA GLOBAL -->
+        <!-- CENTRAL DE PESQUISA -->
         <h2 class="section-title">Central de Pesquisa de Vulnerabilidades</h2>
         <div class="search-wrapper">
             <input type="text" id="cyber-search" class="search-box" placeholder="Busque por termos: wifi, celular, pc, windows, android, brute, deauth...">
             <button class="search-btn" onclick="executeAdvancedSearch()">Pesquisar</button>
-        </div>
-
-        <!-- RESULTADOS DA BUSCA (ENCICLOPÉDIA TÁTICA) -->
-        <h2 class="section-title" id="grid-title">Resultados da Consulta</h2>
-        <div class="grid-layout" id="modules-grid">
-            <!-- Injeção de dados via Engine -->
-        </div>
-    </main>
-
-    <script>
-        // BANCO DE DADOS INTEGRADO (FIXO E EXPANSÍVEL)
-        const cyberDatabase = [
-            {
-                title: "Ataque Deauthentication (Deauth) & Força Bruta",
